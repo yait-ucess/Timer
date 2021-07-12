@@ -1,0 +1,179 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  /*全要素のマージン・パディングをリセット*/
+}
+
+body {
+  background-color: #F7C100;
+}
+
+div {
+  display: block;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 32px;
+}
+
+.header_menu {
+  width: 40px;
+  cursor: pointer;
+}
+
+.header .three_dot {
+  color: #707070;
+  font-size: 5px;
+}
+
+.header .sound {
+  width: 88px;
+  height: 40px;
+  border-radius: 40px;
+  font-weight: 600;
+  position: relative;
+  outline: none;
+  border: none;
+  padding: 0;
+  -webkit-transition: .5s;
+  transition: .5s;
+  cursor: pointer;
+  margin-left: 24px;
+  padding: 0 36px 0 4px;
+  background-color: #707070;
+}
+
+.header .sound_text {
+  color: #F7C100;
+  font-size: 1.4rem;
+  display: block;
+  padding-top: 2px;
+}
+
+.header .sound_circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  left: 52px;
+  -webkit-transition: .5s;
+  transition: .5s;
+  background-color: #F7C100;
+}
+
+.header .sound_icon {
+  color: #707070;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding-top: 6px;
+  margin: auto;
+  height: auto;
+}
+
+.header .sound_icon::before {
+  font-size: 1.2rem;
+}
+
+.main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 90vh;
+  width: 100vw;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.clock {
+  border: 10px solid #707070;
+  width: 490px;
+  height: 490px;
+  border-radius: 50%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.clock_info {
+  position: absolute;
+  top: 30%;
+  left: 0;
+  right: 0;
+  margin: auto 0;
+}
+
+.clock_text {
+  color: #707070;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.clock_count {
+  font-size: 7rem;
+  color: #707070;
+  text-align: center;
+}
+
+.control {
+  width: 515px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 48px auto -48px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+button {
+  background: none;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.btn_skip {
+  background: none;
+  cursor: pointer;
+}
+
+.btn_stop {
+  cursor: pointer;
+}
+
+.btn_pause {
+  cursor: pointer;
+}
+
+.fas_control {
+  font-size: 7rem;
+  color: #707070;
+}
+/*# sourceMappingURL=style.css.map */
