@@ -1,18 +1,49 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FocusTimer</title>
-</head>
-<body>
-  <div class="container">
-    <p id="timer">00:00</p>
-    <div>
-      <button id="play_skip" class="btn btn_skip">▶▶︎</button>
-      <button id="play_stop" class="btn btn_stop">■</button>
-      <button id="play_start" class="btn btn_start">▶︎</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/c08410bddf.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>FocusTimer</title>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <!-- <circle data-v-278db534="" cx="62" cy="40" r="4" transform="rotate(-180 62 40)">・</circle>
+        <circle data-v-278db534="" cx="62" cy="40" r="4" transform="rotate(-180 62 40)">・</circle>
+        <circle data-v-278db534="" cx="62" cy="40" r="4" transform="rotate(-180 62 40)">・</circle> -->
+        <span class="header_menu is-focus">
+          <i class="fas fa-ellipsis-h"></i>
+        </span>
+        <div>
+          <button class="sound is-on is-focus">
+            <span class="sound_text is-on is-focus">ON</span>
+            <span class="sound_circle is-on is-focus"><i class="fas fa-volume-up"></i></span>
+          </button>
+        </div>
+      </header>
+      <main class="main">
+        <div>
+          <div class="clock">
+            <div class="clock_info">
+              <p class="clock_text">集中</p>
+              <p id="timer" class="clock_count">00:00</p>
+            </div>
+          </div>
+          <div class="control">
+            <div>
+              <button type="button" id="play_skip" class="btn btn_skip"><i class="fas_control fas fa-chevron-circle-right"></i></button>
+            </div>
+            <div>
+              <button type="button" id="play_stop" class="btn btn_stop"><i class="fas_control fas fa-stop-circle"></i></button>
+            </div>
+            <div>
+              <button type="button" id="play_start" class="btn btn_pause"><i class="fas_control fas fa-play-circle"></i></button>
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
-  </div>
-</body>
+  </body>
 </html>
