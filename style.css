@@ -164,12 +164,24 @@ button {
   cursor: pointer;
 }
 
+.btn_skip :hover {
+  color: #666666;
+}
+
 .btn_stop {
   cursor: pointer;
 }
 
+.btn_stop :hover {
+  color: #666666;
+}
+
 .btn_pause {
   cursor: pointer;
+}
+
+.btn_pause :hover {
+  color: #666666;
 }
 
 .fas_control {

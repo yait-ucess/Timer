@@ -99,7 +99,6 @@ div {
   height: 490px;
   border-radius: 50%;
   margin: 0 auto;
-  // margin-top: 4%;
   position: relative;
 
   & p {
@@ -124,9 +123,6 @@ div {
     font-size: 7rem;
     color: #707070;
     text-align: center;
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
   }
 }
 
@@ -151,14 +147,26 @@ button {
   &_skip {
     background: none;
     cursor: pointer;
+
+    :hover {
+      color: #666666;
+    }
   }
 
   &_stop {
     cursor: pointer;
+
+    :hover {
+      color: #666666;
+    }
   }
 
   &_pause {
     cursor: pointer;
+
+    :hover {
+      color: #666666;
+    }
   }
 }
 
