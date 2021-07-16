@@ -172,17 +172,6 @@ div {
   }
 
   &_select {
-    // width: 90%;
-    // height: auto;
-    // font-size: 6.5rem;
-    // text-indent: 20.5%;
-    // color: #707070;
-    // border: none;
-    // outline: none;
-    // cursor: pointer;
-    // background: #F7C100;
-
-    display: none;
     overflow-x: hidden;
     overflow-y: scroll;
     width: 320px;
@@ -199,16 +188,25 @@ div {
     cursor: pointer;
 
     &_btn {
+      text-align: center;
+      line-height: 0;
+      height: 0;
+      overflow: hidden;
+      opacity: 0;
+      // transition-duration: 0.4s;
+    }
+
+    &_btn.is_open {
       border: none;
       background: #F7C100;
       color: #707070;
       width: 320px;
       height: 70px;
-      // font-size: 3rem;
       cursor: pointer;
       outline: none;
       font-size: 1.5rem;
       letter-spacing: .05em;
+      opacity: 1;
     }
   }
 }

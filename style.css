@@ -188,7 +188,6 @@ div {
 }
 
 .clock_select {
-  display: none;
   overflow-x: hidden;
   overflow-y: scroll;
   width: 320px;
@@ -208,6 +207,14 @@ div {
 }
 
 .clock_select_btn {
+  text-align: center;
+  line-height: 0;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.clock_select_btn.is_open {
   border: none;
   background: #F7C100;
   color: #707070;
@@ -217,6 +224,7 @@ div {
   outline: none;
   font-size: 1.5rem;
   letter-spacing: .05em;
+  opacity: 1;
 }
 
 .control {
