@@ -131,14 +131,20 @@ div {
   }
 
   &_edit {
-    width: 90%;
+    width: 60%;
     height: auto;
+    border-radius: 8px;
     font-size: 6.5rem;
     text-align: center;
     border: none;
     outline: none;
     cursor: pointer;
     color: #707070;
+    letter-spacing: .01em;
+
+    &:hover {
+      opacity: 0.9;
+    }
 
     ::after {
       content: "";
@@ -175,7 +181,7 @@ div {
     overflow-x: hidden;
     overflow-y: scroll;
     width: 320px;
-    height: 200px;
+    height: 210px;
     box-shadow: var(--shadow-primary);
     border-radius: 8px;
     position: absolute;
@@ -193,7 +199,6 @@ div {
       height: 0;
       overflow: hidden;
       opacity: 0;
-      // transition-duration: 0.4s;
     }
 
     &_btn.is_open {
@@ -207,6 +212,10 @@ div {
       font-size: 1.5rem;
       letter-spacing: .05em;
       opacity: 1;
+
+      &:hover {
+        background: #f7ac00;
+      }
     }
   }
 }

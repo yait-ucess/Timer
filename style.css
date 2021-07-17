@@ -145,14 +145,20 @@ div {
 }
 
 .clock_edit {
-  width: 90%;
+  width: 60%;
   height: auto;
+  border-radius: 8px;
   font-size: 6.5rem;
   text-align: center;
   border: none;
   outline: none;
   cursor: pointer;
   color: #707070;
+  letter-spacing: .01em;
+}
+
+.clock_edit:hover {
+  opacity: 0.9;
 }
 
 .clock_edit ::after {
@@ -191,7 +197,7 @@ div {
   overflow-x: hidden;
   overflow-y: scroll;
   width: 320px;
-  height: 200px;
+  height: 210px;
   -webkit-box-shadow: var(--shadow-primary);
           box-shadow: var(--shadow-primary);
   border-radius: 8px;
@@ -225,6 +231,10 @@ div {
   font-size: 1.5rem;
   letter-spacing: .05em;
   opacity: 1;
+}
+
+.clock_select_btn.is_open:hover {
+  background: #f7ac00;
 }
 
 .control {
