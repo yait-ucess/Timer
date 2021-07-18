@@ -257,33 +257,20 @@ button {
   appearance: none;
 }
 
-.btn_skip {
-  background: none;
+.btn {
   cursor: pointer;
 }
 
-.btn_skip :hover {
-  color: #666666;
-}
-
-.btn_stop {
+.fas {
   cursor: pointer;
-}
-
-.btn_stop :hover {
-  color: #666666;
-}
-
-.btn_pause {
-  cursor: pointer;
-}
-
-.btn_pause :hover {
-  color: #666666;
 }
 
 .fas_control {
   font-size: 7rem;
   color: #707070;
+}
+
+.fas_control:hover {
+  color: #666666;
 }
 /*# sourceMappingURL=style.css.map */

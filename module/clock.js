@@ -84,3 +84,26 @@ const select_time = () => {
 };
 
 export { toggle_select, select_time };
+
+
+
+  // let times = clock_edit.innerHTML;
+  // const time = parseInt(times);
+  // console.log(time);
+
+
+  // let now = new Date();
+  // let seconds = now.getSeconds();
+  // seconds = addZero(seconds);
+
+  // let minutes = now.getMinutes();
+  // minutes = addZero(minutes);
+
+  // let hours = now.getHours();
+  // hours = addZero(hours);
+
+  // console.log(now);
+  // console.log(seconds);
+  // console.log(minutes);
+  // console.log(hours);
+  // clock_edit.innerHTML = hours + ":" + minutes + ":" + seconds;

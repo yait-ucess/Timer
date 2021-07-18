@@ -237,37 +237,27 @@ button {
 }
 
 .btn {
+  cursor: pointer;
 
   &_skip {
-    background: none;
-    cursor: pointer;
-
-    :hover {
-      color: #666666;
-    }
   }
 
   &_stop {
-    cursor: pointer;
-
-    :hover {
-      color: #666666;
-    }
   }
 
   &_pause {
-    cursor: pointer;
-
-    :hover {
-      color: #666666;
-    }
   }
 }
 
 .fas {
+  cursor: pointer;
 
   &_control {
     font-size: 7rem;
     color: #707070;
+
+    &:hover {
+      color: #666666;
+    }
   }
 }
