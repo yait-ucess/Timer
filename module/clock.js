@@ -156,19 +156,3 @@ const select_time = () => {
 };
 
 export { toggle_select, select_time };
-
-// const goClock = () => {
-//   start = new Date();
-//   const now = new Date();
-
-//   let ms = now.getTime() - start.getTime();
-//   let seconds = Math.floor(ms / 1000);
-//   let minutes = Math.floor(seconds / 60);
-
-//   seconds = seconds - minutes * 60;
-
-//   seconds = addZero(seconds);
-//   minutes = addZero(minutes);
-
-//   clock_edit.innerHTML = minutes + ":" + seconds;
-// };

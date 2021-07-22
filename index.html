@@ -28,11 +28,11 @@
             <div class="clock_info">
               <p class="clock_text">集中</p>
               <div class="clock_form">
-                <button class="clock_edit" id="clock_edit">10:00</button>
+                <button class="clock_edit" id="clock_edit">01:00</button>
                 <div id="clock_select">
-                  <button class="clock_select_btn">01:00</button>
+                  <button class="clock_select_btn is_current">01:00</button>
                   <button class="clock_select_btn">05:00</button>
-                  <button class="clock_select_btn is_current">10:00</button>
+                  <button class="clock_select_btn">10:00</button>
                   <button class="clock_select_btn">15:00</button>
                   <button class="clock_select_btn">20:00</button>
                   <button class="clock_select_btn">25:00</button>
@@ -49,15 +49,18 @@
           </div>
           <div class="control">
             <div>
-              <button type="button" id="play_skip" class="btn btn_skip"><i class="fas_control fas fa-chevron-circle-right"></i></button>
+              <button type="button" id="play_skip" class="btn btn_skip">
+                <i class="fas_control fas fa-chevron-circle-right"></i>
+              </button>
             </div>
             <div>
-              <button type="button" id="play_stop" class="btn btn_stop"><i class="fas_control fas fa-stop-circle"></i></button>
+              <button type="button" id="play_stop" class="btn btn_stop">
+                <i class="fas_control fas fa-stop-circle"></i>
+              </button>
             </div>
             <div>
               <button type="button" id="play_start" class="btn">
                 <i id="play" class="fas_control fas fa-play-circle"></i>
-                <!-- <i class="fas fa-pause-circle"></i> -->
               </button>
             </div>
           </div>

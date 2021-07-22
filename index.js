@@ -11,14 +11,13 @@ let time;
 
 clock_edit = document.getElementById("clock_edit");
 clock_is_current = document.getElementsByClassName("clock_select_btn is_current")[0];
-console.log(clock_is_current);
+
 toggle_select();
 select_time();
 
 play_start.addEventListener("click", () => {
   if (play_btn.classList[2] === "fa-play-circle") {
     clock_is_current = document.getElementsByClassName("clock_select_btn is_current")[0];
-    console.log(clock_is_current);
     if (clock_edit.innerHTML === clock_is_current.innerHTML) {
       now_time = clock_is_current.innerHTML;
       time = parseInt(now_time) * 60 - 1;
@@ -26,14 +25,12 @@ play_start.addEventListener("click", () => {
 
     interval_id = setInterval(clockTime, 1000);
 
-    // pauseボタンに切り替え
     play_btn.classList.remove("fa-play-circle");
     play_btn.classList.add("fa-pause-circle");
 
   } else {
     clearInterval(interval_id);
 
-    // playボタンに切り替え
     play_btn.classList.remove("fa-pause-circle");
     play_btn.classList.add("fa-play-circle");
   }
@@ -55,10 +52,16 @@ const clockTime = () => {
 
   clock_edit.innerHTML = minutes + ":" + seconds;
 
-  if (parseInt(clock_edit.innerHTML) >= 0) {
+  if (clock_edit.innerHTML !== "00:00") {
+    console.log("経過");
+    console.log(clock_edit.innerHTML);
     time--;
   } else {
-    clearInterval(interval_id);
+    console.log("ストップ");
     time;
+    clearInterval(interval_id);
+
+    play_btn.classList.remove("fa-pause-circle");
+    play_btn.classList.add("fa-play-circle");
   }
 }
