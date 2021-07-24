@@ -156,10 +156,6 @@ div {
   color: #707070;
 }
 
-.clock_edit:hover {
-  opacity: 0.9;
-}
-
 .clock_edit ::after {
   content: "";
   position: absolute;

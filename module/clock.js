@@ -1,3 +1,4 @@
+const play_btn = document.getElementById("play");
 const clock_select = document.getElementById("clock_select");
 const clock_select_btn = document.getElementsByClassName("clock_select_btn");
 
@@ -16,7 +17,9 @@ const toggle_is_open = () => {
 
 const toggle_select = () => {
   clock_edit.addEventListener("click", () => {
-    toggle_is_open();
+    if (play_btn.classList.contains("fa-play-circle")) {
+      toggle_is_open();
+    }
   });  
 };
 
