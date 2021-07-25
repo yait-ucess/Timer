@@ -17,13 +17,22 @@ clock_is_current = document.getElementsByClassName("clock_select_btn is_current"
 toggle_select();
 select_time();
 
+clock_edit.addEventListener("mouseover", (event) => {
+  if (clock_edit.innerHTML === clock_is_current.innerHTML) {
+    event.target.style.color = "#7d7d7d";
+  }
+});
+clock_edit.addEventListener("mouseout", (event) => {
+  if (clock_edit.innerHTML === clock_is_current.innerHTML) {
+    event.target.style.color = "#707070";
+  }
+});
+
 play_start.addEventListener("click", () => {
   if (play_btn.classList.contains("fa-play-circle")) {
-    clock_edit.addEventListener("mouseover", (event) => {
-      event.target.style.color = "#707070";
-    });
 
     clock_is_current = document.getElementsByClassName("clock_select_btn is_current")[0];
+
     if (clock_edit.innerHTML === clock_is_current.innerHTML) {
       now_time = clock_is_current.innerHTML;
       time = parseInt(now_time) * 60 - 1;
@@ -34,15 +43,8 @@ play_start.addEventListener("click", () => {
     play_btn.classList.remove("fa-play-circle");
     play_btn.classList.add("fa-pause-circle");
 
-    console.log(play_btn.classList.contains("fa-play-circle"));
-
   } else {
     clearInterval(interval_id);
-
-    clock_edit.addEventListener("mouseover", (event) => {
-      console.log(event);
-      event.target.style.color = "#7d7d7d";
-    });
 
     play_btn.classList.remove("fa-pause-circle");
     play_btn.classList.add("fa-play-circle");
