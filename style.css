@@ -35,8 +35,13 @@ div {
   cursor: pointer;
 }
 
-.header .three_dot {
+.header .three_dot_focus {
   color: #707070;
+  font-size: 5px;
+}
+
+.header .three_dot_focus_rest {
+  color: #F7C100;
   font-size: 5px;
 }
 
@@ -110,8 +115,17 @@ div {
           justify-content: center;
 }
 
-.clock {
+.clock_focus {
   border: 10px solid #707070;
+  width: 490px;
+  height: 490px;
+  border-radius: 50%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.clock_rest {
+  border: 10px solid #F7C100;
   width: 490px;
   height: 490px;
   border-radius: 50%;
@@ -267,5 +281,17 @@ button {
 
 .fas_control:hover {
   color: #666666;
+}
+
+.fas_skip_rest {
+  color: #F7C100;
+}
+
+.fas_stop_rest {
+  color: #F7C100;
+}
+
+.fas_play_rest {
+  color: #F7C100;
 }
 /*# sourceMappingURL=style.css.map */

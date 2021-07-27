@@ -11,9 +11,9 @@
     <div class="container">
       <header class="header">
         <span class="header_menu is-focus">
-          <i class="fas fa-circle three_dot"></i>
-          <i class="fas fa-circle three_dot"></i>
-          <i class="fas fa-circle three_dot"></i>
+          <i class="fas fa-circle three_dot_focus"></i>
+          <i class="fas fa-circle three_dot_focus"></i>
+          <i class="fas fa-circle three_dot_focus"></i>
         </span>
         <div>
           <button class="sound is-on is-focus">
@@ -24,11 +24,11 @@
       </header>
       <main class="main">
         <div>
-          <div class="clock">
+          <div id="clock" class="clock clock_focus">
             <div class="clock_info">
-              <p class="clock_text">集中</p>
+              <p id="clock_text" class="clock_text">集中</p>
               <div class="clock_form">
-                <button class="clock_edit" id="clock_edit">01:00</button>
+                <button id="clock_edit" class="clock_edit clock_edit_focus">01:00</button>
                 <div id="clock_select">
                   <button class="clock_select_btn is_current">01:00</button>
                   <button class="clock_select_btn">05:00</button>
@@ -49,18 +49,18 @@
           </div>
           <div class="control">
             <div>
-              <button type="button" id="play_skip" class="btn btn_skip">
-                <i class="fas_control fas fa-chevron-circle-right"></i>
+              <button type="button" id="play_skip" class="btn btn_skip focus">
+                <i id="skip" class="fas_control fas fa-chevron-circle-right fas_skip_focus"></i>
               </button>
             </div>
             <div>
               <button type="button" id="play_stop" class="btn btn_stop">
-                <i id="stop" class="fas_control fas fa-stop-circle"></i>
+                <i id="stop" class="fas_control fas fa-stop-circle fas_stop_focus"></i>
               </button>
             </div>
             <div>
               <button type="button" id="play_start" class="btn">
-                <i id="play" class="fas_control fas fa-play-circle"></i>
+                <i id="play" class="fas_control fas fa-play-circle fas_play_focus"></i>
               </button>
             </div>
           </div>

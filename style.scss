@@ -25,9 +25,14 @@ div {
     cursor: pointer;
   }
 
-  .three_dot {
+  .three_dot_focus {
     color: #707070;
     font-size: 5px;
+
+    &_rest {
+      color: #F7C100;
+      font-size: 5px;
+    }
   }
 
   .sound {
@@ -94,12 +99,24 @@ div {
 }
 
 .clock {
-  border: 10px solid #707070;
-  width: 490px;
-  height: 490px;
-  border-radius: 50%;
-  margin: 0 auto;
-  position: relative;
+
+  &_focus {
+    border: 10px solid #707070;
+    width: 490px;
+    height: 490px;
+    border-radius: 50%;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  &_rest {
+    border: 10px solid #F7C100;
+    width: 490px;
+    height: 490px;
+    border-radius: 50%;
+    margin: 0 auto;
+    position: relative;
+  }
 
   & p {
 
@@ -259,5 +276,17 @@ button {
     &:hover {
       color: #666666;
     }
+  }
+
+  &_skip_rest {
+    color: #F7C100;
+  }
+
+  &_stop_rest {
+    color: #F7C100;
+  }
+
+  &_play_rest {
+    color: #F7C100;
   }
 }
