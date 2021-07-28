@@ -40,7 +40,7 @@ div {
   font-size: 5px;
 }
 
-.header .three_dot_focus_rest {
+.header .three_dot_rest {
   color: #F7C100;
   font-size: 5px;
 }
@@ -166,7 +166,6 @@ div {
   text-align: center;
   border: none;
   outline: none;
-  cursor: pointer;
   color: #707070;
 }
 
@@ -243,7 +242,7 @@ div {
 }
 
 .clock_select_btn.is_open:hover {
-  background: #f7ac00;
+  background: #F7AC00;
 }
 
 .control {
@@ -287,11 +286,23 @@ button {
   color: #F7C100;
 }
 
+.fas_skip_rest:hover {
+  color: #F7AC00;
+}
+
 .fas_stop_rest {
   color: #F7C100;
 }
 
+.fas_stop_rest:hover {
+  color: #F7AC00;
+}
+
 .fas_play_rest {
   color: #F7C100;
+}
+
+.fas_play_rest:hover {
+  color: #F7AC00;
 }
 /*# sourceMappingURL=style.css.map */

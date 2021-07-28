@@ -25,9 +25,11 @@ div {
     cursor: pointer;
   }
 
-  .three_dot_focus {
-    color: #707070;
-    font-size: 5px;
+  .three_dot {
+    &_focus {
+      color: #707070;
+      font-size: 5px;
+    }
 
     &_rest {
       color: #F7C100;
@@ -155,7 +157,7 @@ div {
     text-align: center;
     border: none;
     outline: none;
-    cursor: pointer;
+    // cursor: pointer;
     color: #707070;
     // letter-spacing: .01em;
 
@@ -231,7 +233,7 @@ div {
       opacity: 1;
 
       &:hover {
-        background: #f7ac00;
+        background: #F7AC00;
       }
     }
   }
@@ -255,15 +257,6 @@ button {
 
 .btn {
   cursor: pointer;
-
-  &_skip {
-  }
-
-  &_stop {
-  }
-
-  &_pause {
-  }
 }
 
 .fas {
@@ -280,13 +273,22 @@ button {
 
   &_skip_rest {
     color: #F7C100;
+    &:hover {
+      color: #F7AC00;
+    }
   }
 
   &_stop_rest {
     color: #F7C100;
+    &:hover {
+      color: #F7AC00;
+    }
   }
 
   &_play_rest {
     color: #F7C100;
+    &:hover {
+      color: #F7AC00;
+    }
   }
 }

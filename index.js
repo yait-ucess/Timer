@@ -1,14 +1,19 @@
 import { toggle_select, select_time } from "./module/clock.js";
 
-const three_dot = document.getElementsByClassName("three_dot_focus");
-const clock = document.getElementById("clock");
-const clock_text = document.getElementById("clock_text");
-const play_start = document.getElementById("play_start");
-const play_btn = document.getElementById("play");
-const play_stop = document.getElementById("play_stop");
-const stop_btn = document.getElementById("stop");
-const play_skip = document.getElementById("play_skip");
-const skip_btn = document.getElementById("skip");
+const three_dot    = document.getElementsByClassName("three_dot_focus");
+const sound        = document.getElementById("sound");
+const sound_text   = document.getElementById("sound_text");
+const sound_circle = document.getElementById("sound_circle");
+const sound_icon   = document.getElementById("sound_icon");
+const clock        = document.getElementById("clock");
+const clock_text   = document.getElementById("clock_text");
+const clock_form   = document.querySelector(".clock_form");
+const play_start   = document.getElementById("play_start");
+const play_btn     = document.getElementById("play");
+const play_stop    = document.getElementById("play_stop");
+const stop_btn     = document.getElementById("stop");
+const play_skip    = document.getElementById("play_skip");
+const skip_btn     = document.getElementById("skip");
 
 let interval_id;
 let clock_edit;
@@ -23,13 +28,26 @@ toggle_select();
 select_time();
 
 clock_edit.addEventListener("mouseover", (event) => {
+  event.target.style.cursor = "default";
   if (clock_edit.innerHTML === clock_is_current.innerHTML) {
-    event.target.style.color = "#7d7d7d";
+    if (!clock_form.classList.contains("clock_form_rest")) {
+      event.target.style.cursor = "pointer";
+      event.target.style.color = "#7d7d7d";
+    }
+    else {
+      event.target.style.color = "#F7AC00";
+      event.target.style.cursor = "pointer";
+    }
   }
 });
 clock_edit.addEventListener("mouseout", (event) => {
   if (clock_edit.innerHTML === clock_is_current.innerHTML) {
-    event.target.style.color = "#707070";
+    if (!clock_form.classList.contains("clock_form_rest")) {
+      event.target.style.color = "#707070";
+    }
+    else {
+      event.target.style.color = "#F7C100";
+    }
   }
 });
 
@@ -130,9 +148,21 @@ play_skip.addEventListener("click", () => {
   play_btn.classList.remove("fas_play_focus");
   play_btn.classList.add("fas_play_rest");
 
-  console.log(three_dot.length);
   for (let i = 0; three_dot.length; i++) {
-    three_dot[i].classList.remove("three_dot_focus");
-    three_dot[i].classList.add("three_dot_rest");
+    three_dot[0].classList.add("three_dot_rest");
+    three_dot[0].classList.remove("three_dot_focus");
+  }
+
+  sound.style.background = "#F7C100";
+  sound_text.style.color = "#707070";
+  sound_circle.style.background = "#707070";
+  sound_icon.style.color = "#F7C100";
+  clock_text.innerHTML = "休憩";
+
+  if (!clock_form.classList.contains("clock_form_rest")) {
+    clock_form.classList.add("clock_form_rest");
+  }
+  else {
+    clock_form.classList.remove("clock_form_rest");
   }
 });
