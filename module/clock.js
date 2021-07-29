@@ -1,4 +1,5 @@
 const play_btn = document.getElementById("play");
+const clock_form   = document.querySelector(".clock_form");
 const clock_select = document.getElementById("clock_select");
 const clock_select_btn = document.getElementsByClassName("clock_select_btn");
 
@@ -19,7 +20,9 @@ const toggle_select = () => {
   clock_edit.addEventListener("click", () => {
     clock_is_current = document.getElementsByClassName("clock_select_btn is_current")[0];
     if (clock_edit.innerHTML === clock_is_current.innerHTML) {
-      toggle_is_open();
+      if (!clock_form.classList.contains("clock_form_rest")) {
+        toggle_is_open();
+      }
     }
   });
 };
