@@ -1,27 +1,28 @@
 import { toggle_select, select_time } from "./module/clock.js";
 
-const three_dot    = document.getElementsByClassName("three_dot_focus");
-const sound        = document.getElementById("sound");
-const sound_text   = document.getElementById("sound_text");
-const sound_circle = document.getElementById("sound_circle");
-const sound_icon   = document.getElementById("sound_icon");
-const clock        = document.getElementById("clock");
-const clock_text   = document.getElementById("clock_text");
-const clock_form   = document.querySelector(".clock_form");
-const play_start   = document.getElementById("play_start");
-const play_btn     = document.getElementById("play");
-const play_stop    = document.getElementById("play_stop");
-const stop_btn     = document.getElementById("stop");
-const play_skip    = document.getElementById("play_skip");
-const skip_btn     = document.getElementById("skip");
+const sound            = document.getElementById("sound");
+const sound_text       = document.getElementById("sound_text");
+const sound_circle     = document.getElementById("sound_circle");
+const sound_icon       = document.getElementById("sound_icon");
+const clock            = document.getElementById("clock");
+const clock_text       = document.getElementById("clock_text");
+const clock_form       = document.querySelector(".clock_form");
+const play_start       = document.getElementById("play_start");
+const play_btn         = document.getElementById("play");
+const play_stop        = document.getElementById("play_stop");
+const stop_btn         = document.getElementById("stop");
+const play_skip        = document.getElementById("play_skip");
+const skip_btn         = document.getElementById("skip");
 const clock_select_btn = document.getElementsByClassName("clock_select_btn");
 
+let three_dot
 let interval_id;
 let clock_edit;
 let clock_is_current;
 let now_time;
 let time;
 
+three_dot = document.getElementsByClassName("three_dot_focus");
 clock_edit = document.getElementById("clock_edit");
 clock_is_current = document.getElementsByClassName("clock_select_btn is_current")[0];
 
@@ -89,7 +90,8 @@ const clockTime = () => {
 
   if (clock_edit.innerHTML !== "00:00") {
     time--;
-  } else {
+  }
+  else {
     time;
     clearInterval(interval_id);
 
@@ -106,8 +108,64 @@ play_stop.addEventListener("click", () => {
     play_btn.classList.add("fa-play-circle");
   }
 
-  clock_is_current = document.getElementsByClassName("clock_select_btn is_current")[0];
-  clock_edit.innerHTML = clock_is_current.innerHTML;
+  if (!clock_form.classList.contains("clock_form_rest")) {
+    clock_is_current = document.getElementsByClassName("clock_select_btn is_current")[0];
+    clock_edit.innerHTML = clock_is_current.innerHTML;
+  }
+
+  if (clock_form.classList.contains("clock_form_rest")) {
+
+    document.body.style.background = "#F7C100";
+    three_dot = document.getElementsByClassName("three_dot_rest");
+    for (let i = 0; three_dot.length; i++) {
+      three_dot[0].classList.add("three_dot_focus");
+      three_dot[0].classList.remove("three_dot_rest");
+    }
+
+    sound.style.background = "#707070";
+    sound_text.style.color = "#F7C100";
+    sound_circle.style.background = "#F7C100";
+    sound_icon.style.color = "#707070";
+
+    clock.classList.remove("clock_rest");
+    clock.classList.add("clock_focus");
+    clock_text.innerHTML = "集中";
+    clock_text.style.color = "#707070";
+
+    clock_form.classList.remove("clock_form_rest");
+    clock_form.classList.add("clock_form_focus");
+    clock_edit.innerHTML = clock_is_current.innerHTML;
+    clock_edit.style.color = "#707070";
+    clock_edit.addEventListener("mouseover", (event) => {
+      event.target.style.cursor = "default";
+      if (clock_edit.innerHTML === clock_is_current.innerHTML) {
+        if (!clock_form.classList.contains("clock_form_rest")) {
+          event.target.style.cursor = "pointer";
+          event.target.style.color = "#7d7d7d";
+        }
+      }
+    });
+    clock_edit.addEventListener("mouseout", (event) => {
+      if (clock_edit.innerHTML === clock_is_current.innerHTML) {
+        if (!clock_form.classList.contains("clock_form_rest")) {
+          event.target.style.color = "#707070";
+        }
+        else {
+          event.target.style.color = "#F7C100";
+        }
+      }
+    });
+
+
+    skip_btn.classList.remove("fas_skip_rest");
+    skip_btn.classList.add("fas_skip_focus");
+    
+    stop_btn.classList.remove("fas_stop_rest");
+    stop_btn.classList.add("fas_stop_focus");
+    
+    play_btn.classList.remove("fas_play_rest");
+    play_btn.classList.add("fas_play_focus");
+  }
 });
 
 play_skip.addEventListener("click", () => {
@@ -131,7 +189,6 @@ play_skip.addEventListener("click", () => {
     if (play_btn.classList.contains("fa-play-circle")) {
 
       clock_is_current = document.getElementsByClassName("clock_select_btn is_current")[0];
-  
       if (clock_edit.innerHTML === clock_is_current.innerHTML) {
         now_time = clock_is_current.innerHTML;
         time = parseInt(now_time) * 60 - 1;
@@ -142,7 +199,8 @@ play_skip.addEventListener("click", () => {
       play_btn.classList.remove("fa-play-circle");
       play_btn.classList.add("fa-pause-circle");
   
-    } else {
+    }
+    else {
       clearInterval(interval_id);
   
       play_btn.classList.remove("fa-pause-circle");
