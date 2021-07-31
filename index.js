@@ -169,6 +169,9 @@ play_stop.addEventListener("click", () => {
 });
 
 play_skip.addEventListener("click", () => {
+  
+  clock_form.classList.add("clock_form_rest");
+
   if (play_skip.classList.contains("focus")) {
     play_skip.classList.remove("focus");
     play_skip.classList.add("rest");
@@ -186,12 +189,19 @@ play_skip.addEventListener("click", () => {
     clock_edit.innerHTML = clock_is_current.innerHTML;
     clock_edit.style.color = "#F7C100";
 
-    if (play_btn.classList.contains("fa-play-circle")) {
+    if (clock_form.classList.contains("clock_form_rest"))  {
+      console.log(clock_form.classList);
+      console.log(clock_form.classList.contains("clock_form"));
+      console.log(clock_form.classList.contains("clock_form_rest"));
 
       clock_is_current = document.getElementsByClassName("clock_select_btn is_current")[0];
       if (clock_edit.innerHTML === clock_is_current.innerHTML) {
         now_time = clock_is_current.innerHTML;
         time = parseInt(now_time) * 60 - 1;
+      }
+
+      if (play_btn.classList.contains("fa-pause-circle")) {
+        clearInterval(interval_id);  
       }
   
       interval_id = setInterval(clockTime, 1000);
