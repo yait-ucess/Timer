@@ -15,6 +15,8 @@ const play_skip        = document.getElementById("play_skip");
 const skip_btn         = document.getElementById("skip");
 const clock_select_btn = document.getElementsByClassName("clock_select_btn");
 
+
+
 let three_dot
 let interval_id;
 let clock_edit;
@@ -22,12 +24,18 @@ let clock_is_current;
 let now_time;
 let time;
 
+
+
 three_dot = document.getElementsByClassName("three_dot_focus");
 clock_edit = document.getElementById("clock_edit");
 clock_is_current = document.getElementsByClassName("clock_select_btn is_current")[0];
 
+
+
 toggle_select();
 select_time();
+
+
 
 clock_edit.addEventListener("mouseover", (event) => {
   event.target.style.cursor = "default";
@@ -48,6 +56,8 @@ clock_edit.addEventListener("mouseout", (event) => {
     }
   }
 });
+
+
 
 play_start.addEventListener("click", () => {
   if (play_btn.classList.contains("fa-play-circle")) {
@@ -72,12 +82,16 @@ play_start.addEventListener("click", () => {
   }
 });
 
+
+
 const addZero = (value) => {
   if (value < 10) {
     value = "0" + value;
   }
   return value;
 }
+
+
 
 const clockTime = () => {
   let minutes = Math.floor(time / 60);
@@ -100,9 +114,16 @@ const clockTime = () => {
   }
 }
 
+
+
 play_stop.addEventListener("click", () => {
   clearInterval(interval_id);
 
+  console.log(clock.classList);
+  console.log(clock.classList.contains("clock_rest"));
+  if (clock.classList.contains("clock_rest")) {
+    console.log("誠に有難う！");
+  }
   if (play_btn.classList.contains("fa-pause-circle")) {
     play_btn.classList.remove("fa-pause-circle");
     play_btn.classList.add("fa-play-circle");
@@ -112,6 +133,8 @@ play_stop.addEventListener("click", () => {
     clock_is_current = document.getElementsByClassName("clock_select_btn is_current")[0];
     clock_edit.innerHTML = clock_is_current.innerHTML;
   }
+
+  // console.log(clock.classList.contains("clock_form_rest"));
 
   if (clock_form.classList.contains("clock_form_rest")) {
 
@@ -168,8 +191,9 @@ play_stop.addEventListener("click", () => {
   }
 });
 
+
+
 play_skip.addEventListener("click", () => {
-  
   clock_form.classList.add("clock_form_rest");
 
   if (play_skip.classList.contains("focus")) {
@@ -190,9 +214,6 @@ play_skip.addEventListener("click", () => {
     clock_edit.style.color = "#F7C100";
 
     if (clock_form.classList.contains("clock_form_rest"))  {
-      console.log(clock_form.classList);
-      console.log(clock_form.classList.contains("clock_form"));
-      console.log(clock_form.classList.contains("clock_form_rest"));
 
       clock_is_current = document.getElementsByClassName("clock_select_btn is_current")[0];
       if (clock_edit.innerHTML === clock_is_current.innerHTML) {
