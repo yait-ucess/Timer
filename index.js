@@ -117,8 +117,8 @@ const clockTime = () => {
 
 
 const focus_color = () => {
-  clock.classList.remove("clock_rest");
   clock.classList.add("clock_focus");
+  clock.classList.remove("clock_rest");
   skip_btn.classList.remove("fas_skip_rest");
   skip_btn.classList.add("fas_skip_focus");
   stop_btn.classList.remove("fas_stop_rest");
@@ -167,6 +167,7 @@ play_stop.addEventListener("click", () => {
 
   if (clock.classList.contains("clock_rest")) {
     console.log("誠に有難う！");
+    focus_color();
   }
   if (play_btn.classList.contains("fa-pause-circle")) {
     play_btn.classList.remove("fa-pause-circle");
@@ -226,7 +227,6 @@ play_stop.addEventListener("click", () => {
 
 
 play_skip.addEventListener("click", () => {
-  clock_form.classList.add("clock_form_rest");
 
   if (play_skip.classList.contains("focus")) {
     play_skip.classList.remove("focus");
@@ -235,9 +235,7 @@ play_skip.addEventListener("click", () => {
   else if (play_skip.classList.contains("rest")) {
     play_skip.classList.remove("rest");
     play_skip.classList.add("focus");
-  }
 
-  if (play_skip.classList.contains("rest")) {
     if (clock_form.classList.contains("clock_form_rest"))  {
 
       // clock_is_current = document.getElementsByClassName("clock_select_btn is_current")[0];
@@ -262,17 +260,33 @@ play_skip.addEventListener("click", () => {
       play_btn.classList.remove("fa-pause-circle");
       play_btn.classList.add("fa-play-circle");
     }
-
-    if (clock.classList.contains("clock_focus")) {
-      clock.classList.remove("clock_focus");
-      clock.classList.add("clock_rest");
-    }
-    else if (clock.classList.contains("clock_rest")) {
-      clock.classList.remove("clock_rest");
-      clock.classList.add("clock_focus");
-    }
   }
 
+  // clock_focus, clock_restの追加・削除
+  console.log(clock.classList);
+  console.log(clock.classList.contains("clock_focus"));
+
+  if (clock.classList.contains("clock_focus")) {
+    clock.classList.add("clock_rest");
+    clock.classList.remove("clock_focus");
+  }
+  else if (clock.classList.contains("clock_rest")) {
+    clock.classList.add("clock_focus");
+    clock.classList.remove("clock_rest");
+  }
+
+  // clock_form_restの追加・削除
+  if (!clock_form.classList.contains("clock_form_rest")) {
+    clock_form.classList.add("clock_form_rest");
+  }
+  else {
+    clock_form.classList.remove("clock_form_rest");
+  }
+  // if (play_skip.classList.contains("rest")) {
+
+  // }
+
+  // ３ボタンの変更
   skip_btn.classList.remove("fas_skip_focus");
   skip_btn.classList.add("fas_skip_rest");
   
@@ -288,17 +302,10 @@ play_skip.addEventListener("click", () => {
     three_dot[0].classList.remove("three_dot_focus");
   }
 
-  if (!clock_form.classList.contains("clock_form_rest")) {
-    clock_form.classList.add("clock_form_rest");
-  }
-  else {
-    clock_form.classList.remove("clock_form_rest");
-  }
-
-  if (clock.classList.contains("clock_rest")) {
+  if (clock_form.classList.contains("clock_form_rest")) {
     rest_color();
   }
-  else if (clock.classList.contains("clock_focus")) {
+  else {
     focus_color();
     clearInterval(interval_id);
     play_btn.classList.remove("fa-pause-circle");
