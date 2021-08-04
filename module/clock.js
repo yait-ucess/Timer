@@ -305,28 +305,28 @@ const select_time = () => {
     toggle_is_open();
   });
 
-  clock_select_btn[12].addEventListener("click", () => {
-    clock_is_current = document.getElementsByClassName("clock_select_btn is_current")[0];
+  // clock_select_btn[12].addEventListener("click", () => {
+  //   clock_is_current = document.getElementsByClassName("clock_select_btn is_current")[0];
 
-    let select_time = clock_select_btn[12].innerHTML;
-    clock_edit.innerHTML = select_time;
-    clock_is_current.classList.remove("is_current");
-    clock_select_btn[12].classList.add("is_current");
+  //   let select_time = clock_select_btn[12].innerHTML;
+  //   clock_edit.innerHTML = select_time;
+  //   clock_is_current.classList.remove("is_current");
+  //   clock_select_btn[12].classList.add("is_current");
 
-    clock_is_current = document.getElementsByClassName("clock_select_btn is_current")[0];
+  //   clock_is_current = document.getElementsByClassName("clock_select_btn is_current")[0];
 
-    clock_edit.addEventListener("mouseover", (event) => {
-      if (clock_edit.innerHTML === clock_is_current.innerHTML) {
-        event.target.style.color = "#7d7d7d";
-      }
-    });
-    clock_edit.addEventListener("mouseout", (event) => {
-      if (clock_edit.innerHTML === clock_is_current.innerHTML) {
-        event.target.style.color = "#707070";
-      }
-    });
-    toggle_is_open();
-  });
+  //   clock_edit.addEventListener("mouseover", (event) => {
+  //     if (clock_edit.innerHTML === clock_is_current.innerHTML) {
+  //       event.target.style.color = "#7d7d7d";
+  //     }
+  //   });
+  //   clock_edit.addEventListener("mouseout", (event) => {
+  //     if (clock_edit.innerHTML === clock_is_current.innerHTML) {
+  //       event.target.style.color = "#707070";
+  //     }
+  //   });
+  //   toggle_is_open();
+  // });
 };
 
 export { toggle_select, select_time };

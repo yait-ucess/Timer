@@ -127,11 +127,24 @@ const focus_color = () => {
   play_btn.classList.add("fas_play_focus");
   document.body.style.background = "#F7C100";
   clock_is_current.classList.remove("is_current");
-  clock_select_btn[5].classList.add("is_current");
+  clock_is_current = document.getElementsByClassName("clock_select_btn is_current")[0];
+
+  if (clock_is_current === undefined) {
+    clock_select_btn[0].classList.add("is_current");
+    console.log(clock_select_btn[0].classList);
+  }
+
   clock_is_current = document.getElementsByClassName("clock_select_btn is_current")[0];
   clock_edit.innerHTML = clock_is_current.innerHTML;
   clock_edit.style.color = "#707070";
   clock_text.style.color = "#707070";
+  three_dot = document.getElementsByClassName("three_dot_rest");
+
+  for (let i = 0; three_dot.length; i++) {
+    three_dot[0].classList.add("three_dot_focus");
+    three_dot[0].classList.remove("three_dot_rest");
+  }
+
   sound.style.background = "#707070";
   sound_text.style.color = "#F7C100";
   sound_circle.style.background = "#F7C100";
@@ -143,16 +156,30 @@ const focus_color = () => {
 
 const rest_color = () => {
   document.body.style.background = "#707070";
-  clock_is_current.classList.remove("is_current");
-  clock_select_btn[1].classList.add("is_current");
+  clock_select_btn[0].classList.add("is_current");
   clock_is_current = document.getElementsByClassName("clock_select_btn is_current")[0];
   clock_edit.innerHTML = clock_is_current.innerHTML;
+
   if (clock_edit.innerHTML === clock_is_current.innerHTML) {
     now_time = clock_is_current.innerHTML;
     time = parseInt(now_time) * 60 - 1;
   }
+
+  clearInterval(interval_id);
+  interval_id = setInterval(clockTime, 1000);
+
+  play_btn.classList.remove("fa-play-circle");
+  play_btn.classList.add("fa-pause-circle");
+
   clock_edit.style.color = "#F7C100";
   clock_text.style.color = "#F7C100";
+  three_dot = document.getElementsByClassName("three_dot_focus");
+
+  for (let i = 0; three_dot.length; i++) {
+    three_dot[0].classList.add("three_dot_rest");
+    three_dot[0].classList.remove("three_dot_focus");
+  }
+
   sound.style.background = "#F7C100";
   sound_text.style.color = "#707070";
   sound_circle.style.background = "#707070";
@@ -162,11 +189,33 @@ const rest_color = () => {
 
 
 
+const mouseEvent = () => {
+  clock_edit.addEventListener("mouseover", (event) => {
+    event.target.style.cursor = "default";
+    if (clock_edit.innerHTML === clock_is_current.innerHTML) {
+      if (!clock_form.classList.contains("clock_form_rest")) {
+        event.target.style.cursor = "pointer";
+        event.target.style.color = "#7d7d7d";
+      }
+    }
+  });
+  clock_edit.addEventListener("mouseout", (event) => {
+    if (clock_edit.innerHTML === clock_is_current.innerHTML) {
+      if (!clock_form.classList.contains("clock_form_rest")) {
+        event.target.style.color = "#707070";
+      }
+      else {
+        event.target.style.color = "#F7C100";
+      }
+    }
+  });
+}
+
+
 play_stop.addEventListener("click", () => {
   clearInterval(interval_id);
 
   if (clock.classList.contains("clock_rest")) {
-    console.log("誠に有難う！");
     focus_color();
   }
   if (play_btn.classList.contains("fa-pause-circle")) {
@@ -202,25 +251,8 @@ play_stop.addEventListener("click", () => {
     clock_form.classList.add("clock_form_focus");
     clock_edit.innerHTML = clock_is_current.innerHTML;
     clock_edit.style.color = "#707070";
-    clock_edit.addEventListener("mouseover", (event) => {
-      event.target.style.cursor = "default";
-      if (clock_edit.innerHTML === clock_is_current.innerHTML) {
-        if (!clock_form.classList.contains("clock_form_rest")) {
-          event.target.style.cursor = "pointer";
-          event.target.style.color = "#7d7d7d";
-        }
-      }
-    });
-    clock_edit.addEventListener("mouseout", (event) => {
-      if (clock_edit.innerHTML === clock_is_current.innerHTML) {
-        if (!clock_form.classList.contains("clock_form_rest")) {
-          event.target.style.color = "#707070";
-        }
-        else {
-          event.target.style.color = "#F7C100";
-        }
-      }
-    });
+
+    mouseEvent();
   }
 });
 
@@ -237,13 +269,6 @@ play_skip.addEventListener("click", () => {
     play_skip.classList.add("focus");
 
     if (clock_form.classList.contains("clock_form_rest"))  {
-
-      // clock_is_current = document.getElementsByClassName("clock_select_btn is_current")[0];
-      // if (clock_edit.innerHTML === clock_is_current.innerHTML) {
-      //   now_time = clock_is_current.innerHTML;
-      //   time = parseInt(now_time) * 60 - 1;
-      // }
-
       if (play_btn.classList.contains("fa-pause-circle")) {
         clearInterval(interval_id);  
       }
@@ -263,9 +288,6 @@ play_skip.addEventListener("click", () => {
   }
 
   // clock_focus, clock_restの追加・削除
-  console.log(clock.classList);
-  console.log(clock.classList.contains("clock_focus"));
-
   if (clock.classList.contains("clock_focus")) {
     clock.classList.add("clock_rest");
     clock.classList.remove("clock_focus");
@@ -282,9 +304,6 @@ play_skip.addEventListener("click", () => {
   else {
     clock_form.classList.remove("clock_form_rest");
   }
-  // if (play_skip.classList.contains("rest")) {
-
-  // }
 
   // ３ボタンの変更
   skip_btn.classList.remove("fas_skip_focus");
@@ -296,12 +315,6 @@ play_skip.addEventListener("click", () => {
   play_btn.classList.remove("fas_play_focus");
   play_btn.classList.add("fas_play_rest");
 
-  // スリードットの色を変える
-  for (let i = 0; three_dot.length; i++) {
-    three_dot[0].classList.add("three_dot_rest");
-    three_dot[0].classList.remove("three_dot_focus");
-  }
-
   if (clock_form.classList.contains("clock_form_rest")) {
     rest_color();
   }
@@ -311,4 +324,5 @@ play_skip.addEventListener("click", () => {
     play_btn.classList.remove("fa-pause-circle");
     play_btn.classList.add("fa-play-circle");
   }
+  mouseEvent();
 });
