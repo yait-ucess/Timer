@@ -111,6 +111,23 @@ const clockTime = () => {
 
     play_btn.classList.remove("fa-pause-circle");
     play_btn.classList.add("fa-play-circle");
+
+    if (clock.classList.contains("clock_focus")) {
+      rest_color();
+      clockJudgment();
+      btnChange();
+    }
+    else {
+      focus_color();
+      clock_is_current = document.getElementsByClassName("clock_select_btn is_current")[0];
+      if (clock_edit.innerHTML === clock_is_current.innerHTML) {
+        now_time = clock_is_current.innerHTML;
+        time = parseInt(now_time) * 60 - 1;
+      }
+      interval_id = setInterval(clockTime, 1000);
+      play_btn.classList.remove("fa-play-circle");
+      play_btn.classList.add("fa-pause-circle");
+    }
   }
 }
 
@@ -209,6 +226,32 @@ const mouseEvent = () => {
       }
     }
   });
+}
+
+
+
+const clockJudgment = () => {
+  if (clock.classList.contains("clock_focus")) {
+    clock.classList.add("clock_rest");
+    clock.classList.remove("clock_focus");
+  }
+  else if (clock.classList.contains("clock_rest")) {
+    clock.classList.add("clock_focus");
+    clock.classList.remove("clock_rest");
+  }
+}
+
+
+
+const btnChange = () => {
+  skip_btn.classList.remove("fas_skip_focus");
+  skip_btn.classList.add("fas_skip_rest");
+  
+  stop_btn.classList.remove("fas_stop_focus");
+  stop_btn.classList.add("fas_stop_rest");
+  
+  play_btn.classList.remove("fas_play_focus");
+  play_btn.classList.add("fas_play_rest");
 }
 
 
