@@ -324,7 +324,7 @@ play_skip.addEventListener("click", () => {
     }
     else {
       clearInterval(interval_id);
-  
+
       play_btn.classList.remove("fa-pause-circle");
       play_btn.classList.add("fa-play-circle");
     }
@@ -364,8 +364,17 @@ play_skip.addEventListener("click", () => {
   else {
     focus_color();
     clearInterval(interval_id);
-    play_btn.classList.remove("fa-pause-circle");
-    play_btn.classList.add("fa-play-circle");
+    clock_is_current = document.getElementsByClassName("clock_select_btn is_current")[0];
+    clock_edit.innerHTML = clock_is_current.innerHTML;
+  
+    if (clock_edit.innerHTML === clock_is_current.innerHTML) {
+      now_time = clock_is_current.innerHTML;
+      time = parseInt(now_time) * 60 - 1;
+    }
+  
+    interval_id = setInterval(clockTime, 1000);
+    // play_btn.classList.remove("fa-pause-circle");
+    // play_btn.classList.add("fa-play-circle");
   }
   mouseEvent();
 });
