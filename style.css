@@ -59,17 +59,20 @@ div {
   cursor: pointer;
   margin-left: 24px;
   padding: 0 36px 0 4px;
+}
+
+.header .sound_focus {
   background: #707070;
 }
 
-.header .sound_text {
+.header .sound_focus_text {
   color: #F7C100;
   font-size: 1.4rem;
   display: block;
   padding-top: 2px;
 }
 
-.header .sound_circle {
+.header .sound_focus_circle {
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -84,7 +87,7 @@ div {
   background: #F7C100;
 }
 
-.header .sound_icon {
+.header .sound_focus_icon {
   color: #707070;
   display: block;
   position: absolute;
@@ -97,7 +100,54 @@ div {
   height: auto;
 }
 
-.header .sound_icon::before {
+.header .sound_focus_icon::before {
+  font-size: 1.2rem;
+}
+
+.header .sound_rest {
+  background: #F7AC00;
+}
+
+.header .sound_rest_text {
+  position: absolute;
+  color: #707070;
+  font-size: 1.4rem;
+  display: block;
+  -webkit-transition: .5s;
+  transition: .5s;
+  right: 6px;
+  bottom: 5.8px;
+}
+
+.header .sound_rest_circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  left: 4px;
+  -webkit-transition: .5s;
+  transition: .5s;
+  background: #F7C100;
+}
+
+.header .sound_rest_icon {
+  color: #707070;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding-top: 6px;
+  margin: auto;
+  height: auto;
+}
+
+.header .sound_rest_icon::before {
   font-size: 1.2rem;
 }
 

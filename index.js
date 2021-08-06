@@ -32,6 +32,22 @@ clock_is_current = document.getElementsByClassName("clock_select_btn is_current"
 
 
 
+sound.addEventListener("click", () => {
+  sound.classList.remove("sound_focus");
+  sound.classList.add("sound_rest");
+  sound_text.classList.remove("sound_focus_text");
+  sound_text.classList.add("sound_rest_text");
+  sound_text.innerHTML = "OFF";
+  sound_circle.classList.remove("sound_focus_circle");
+  sound_circle.classList.add("sound_rest_circle");
+  sound_icon.classList.remove("sound_focus_icon");
+  sound_icon.classList.add("sound_rest_icon");
+  sound_icon.classList.remove("fa-volume-up");
+  sound_icon.classList.add("fa-volume-mute");
+});
+
+
+
 toggle_select();
 select_time();
 
@@ -253,6 +269,7 @@ const btnChange = () => {
   play_btn.classList.remove("fas_play_focus");
   play_btn.classList.add("fas_play_rest");
 }
+
 
 
 play_stop.addEventListener("click", () => {
