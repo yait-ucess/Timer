@@ -32,7 +32,22 @@ clock_is_current = document.getElementsByClassName("clock_select_btn is_current"
 
 
 
-sound.addEventListener("click", () => {
+const soundOn = () => {
+  sound.classList.remove("sound_rest");
+  sound.classList.add("sound_focus");
+  sound_text.classList.remove("sound_rest_text");
+  sound_text.classList.add("sound_focus_text");
+  sound_text.innerHTML = "ON";
+  sound_circle.classList.remove("sound_rest_circle");
+  sound_circle.classList.add("sound_focus_circle");
+  sound_icon.classList.remove("sound_rest_icon");
+  sound_icon.classList.add("sound_focus_icon");
+  sound_icon.classList.remove("fa-volume-mute");
+  sound_icon.classList.add("fa-volume-up");
+}
+
+
+const soundOff = () => {
   sound.classList.remove("sound_focus");
   sound.classList.add("sound_rest");
   sound_text.classList.remove("sound_focus_text");
@@ -44,6 +59,22 @@ sound.addEventListener("click", () => {
   sound_icon.classList.add("sound_rest_icon");
   sound_icon.classList.remove("fa-volume-up");
   sound_icon.classList.add("fa-volume-mute");
+}
+
+
+
+sound.addEventListener("click", () => {
+  if (clock.classList.contains("clock_focus")) {
+    if (sound.classList.contains("sound_focus")) {
+      soundOff();
+    }
+    else if (sound.classList.contains("sound_rest")) {
+      soundOn();
+    }
+    else {
+      return null;
+    }
+  }
 });
 
 
@@ -178,10 +209,10 @@ const focus_color = () => {
     three_dot[0].classList.remove("three_dot_rest");
   }
 
-  sound.style.background = "#707070";
-  sound_text.style.color = "#F7C100";
-  sound_circle.style.background = "#F7C100";
-  sound_icon.style.color = "#707070";
+  // sound.style.background = "#707070";
+  // sound_text.style.color = "#F7C100";
+  // sound_circle.style.background = "#F7C100";
+  // sound_icon.style.color = "#707070";
   clock_text.innerHTML = "集中";
 }
 
@@ -213,10 +244,10 @@ const rest_color = () => {
     three_dot[0].classList.remove("three_dot_focus");
   }
 
-  sound.style.background = "#F7C100";
-  sound_text.style.color = "#707070";
-  sound_circle.style.background = "#707070";
-  sound_icon.style.color = "#F7C100";
+  // sound.style.background = "#F7C100";
+  // sound_text.style.color = "#707070";
+  // sound_circle.style.background = "#707070";
+  // sound_icon.style.color = "#F7C100";
   clock_text.innerHTML = "休憩";
 }
 
@@ -254,6 +285,9 @@ const clockJudgment = () => {
   else if (clock.classList.contains("clock_rest")) {
     clock.classList.add("clock_focus");
     clock.classList.remove("clock_rest");
+  }
+  else {
+    return null;
   }
 }
 
@@ -346,6 +380,9 @@ play_skip.addEventListener("click", () => {
       play_btn.classList.add("fa-play-circle");
     }
   }
+  else {
+    return null;
+  }
 
   // clock_focus, clock_restの追加・削除
   if (clock.classList.contains("clock_focus")) {
@@ -355,6 +392,9 @@ play_skip.addEventListener("click", () => {
   else if (clock.classList.contains("clock_rest")) {
     clock.classList.add("clock_focus");
     clock.classList.remove("clock_rest");
+  }
+  else {
+    return null;
   }
 
   // clock_form_restの追加・削除
