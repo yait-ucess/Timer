@@ -156,7 +156,7 @@ select_time();
 
 
 
-// 時間部分のhover時の挙動
+// タイマーhover時の挙動
 clock_edit.addEventListener("mouseover", (event) => {
   event.target.style.cursor = "default";
   if (clock_edit.innerHTML === clock_is_current.innerHTML) {
@@ -239,9 +239,30 @@ const clockTime = () => {
       rest_color();
       clockJudgment();
       btnChange();
+
+      if (sound.classList.contains("sound_focus_on")) {
+        soundRestOn();
+      }
+      else if (sound.classList.contains("sound_focus_off")) {
+        soundRestOff();
+      }
+      else {
+        return null;
+      }
     }
     else {
       focus_color();
+      
+      if (sound.classList.contains("sound_rest_on")) {
+        soundFocusOn();
+      }
+      else if (sound.classList.contains("sound_rest_off")) {
+        soundFocusOff();
+      }
+      else {
+        return null;
+      }
+
       clock_is_current = document.getElementsByClassName("clock_select_btn is_current")[0];
       if (clock_edit.innerHTML === clock_is_current.innerHTML) {
         now_time = clock_is_current.innerHTML;
