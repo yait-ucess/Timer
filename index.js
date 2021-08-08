@@ -4,6 +4,7 @@ const sound            = document.getElementById("sound");
 const sound_text       = document.getElementById("sound_text");
 const sound_circle     = document.getElementById("sound_circle");
 const sound_icon       = document.getElementById("sound_icon");
+const audio            = document.getElementById("audio");
 const clock            = document.getElementById("clock");
 const clock_text       = document.getElementById("clock_text");
 const clock_form       = document.querySelector(".clock_form");
@@ -125,9 +126,13 @@ sound.addEventListener("click", () => {
   if (clock.classList.contains("clock_focus")) {
     if (sound.classList.contains("sound_focus_on")) {
       soundFocusOff();
+      audio.pause();
+      audio.currentTime = 0;
     }
     else if (sound.classList.contains("sound_focus_off")) {
       soundFocusOn();
+      audio.currentTime = 0;
+      audio.play();
     }
     else {
       return null;
@@ -136,9 +141,12 @@ sound.addEventListener("click", () => {
   else if (clock.classList.contains("clock_rest")) {
     if (sound.classList.contains("sound_rest_on")) {
       soundRestOff();
+      audio.pause();
+      audio.currentTime = 0;
     }
     else if (sound.classList.contains("sound_rest_off")) {
       soundRestOn();
+      audio.play();
     }
     else {
       return null;
@@ -252,7 +260,7 @@ const clockTime = () => {
     }
     else {
       focus_color();
-      
+
       if (sound.classList.contains("sound_rest_on")) {
         soundFocusOn();
       }
@@ -399,6 +407,8 @@ const btnChange = () => {
 
 // stopボタンクリック時の挙動
 play_stop.addEventListener("click", () => {
+  console.log(ball_a.y);
+  console.log(ball_a.x);
   clearInterval(interval_id);
 
   if (clock.classList.contains("clock_rest")) {
@@ -569,3 +579,14 @@ play_skip.addEventListener("click", () => {
   }
   mouseEvent();
 });
+
+class ball {
+  constructor(x, y, dx, dy) {
+      this.x = x;
+      this.y = y;
+      this.dx = dx;
+      this.dy = dy;
+  }
+}
+
+let ball_a = new ball(2, "赤犬", 3 * 4, "dx");
