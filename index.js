@@ -4,7 +4,8 @@ const sound            = document.getElementById("sound");
 const sound_text       = document.getElementById("sound_text");
 const sound_circle     = document.getElementById("sound_circle");
 const sound_icon       = document.getElementById("sound_icon");
-const audio            = document.getElementById("audio");
+const audio_sengoku    = document.getElementById("audio_sengoku");
+const audio_honobono   = document.getElementById("audio_honobono");
 const clock            = document.getElementById("clock");
 const clock_text       = document.getElementById("clock_text");
 const clock_form       = document.querySelector(".clock_form");
@@ -126,13 +127,12 @@ sound.addEventListener("click", () => {
   if (clock.classList.contains("clock_focus")) {
     if (sound.classList.contains("sound_focus_on")) {
       soundFocusOff();
-      audio.pause();
-      audio.currentTime = 0;
+      audio_sengoku.pause();
+      audio_sengoku.currentTime = 0;
     }
     else if (sound.classList.contains("sound_focus_off")) {
       soundFocusOn();
-      audio.currentTime = 0;
-      audio.play();
+      audio_sengoku.play();
     }
     else {
       return null;
@@ -141,12 +141,12 @@ sound.addEventListener("click", () => {
   else if (clock.classList.contains("clock_rest")) {
     if (sound.classList.contains("sound_rest_on")) {
       soundRestOff();
-      audio.pause();
-      audio.currentTime = 0;
+      audio_sengoku.pause();
+      audio_sengoku.currentTime = 0;
     }
     else if (sound.classList.contains("sound_rest_off")) {
       soundRestOn();
-      audio.play();
+      audio_sengoku.play();
     }
     else {
       return null;
@@ -239,6 +239,20 @@ const clockTime = () => {
   else {
     time;
     clearInterval(interval_id);
+
+    if (sound.classList.contains("sound_focus_on")) {
+      audio_sengoku.pause();
+      audio_sengoku.currentTime = 0;
+      audio_honobono.play();
+    }
+    else if(sound.classList.contains("sound_rest_on")) {
+      audio_honobono.pause();
+      audio_honobono.currentTime = 0;
+      audio_sengoku.play();
+      
+    }
+    console.log(sound.classList.contains("sound_focus_on"));
+    console.log(sound.classList.contains("sound_rest_on"));
 
     play_btn.classList.remove("fa-pause-circle");
     play_btn.classList.add("fa-play-circle");
