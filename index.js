@@ -249,10 +249,10 @@ const clockTime = () => {
       audio_honobono.pause();
       audio_honobono.currentTime = 0;
       audio_sengoku.play();
-      
     }
-    console.log(sound.classList.contains("sound_focus_on"));
-    console.log(sound.classList.contains("sound_rest_on"));
+    else {
+      return null;
+    }
 
     play_btn.classList.remove("fa-pause-circle");
     play_btn.classList.add("fa-play-circle");
@@ -486,6 +486,17 @@ play_stop.addEventListener("click", () => {
 
 // skipボタンクリック時の挙動
 play_skip.addEventListener("click", () => {
+  if (sound.classList.contains("sound_focus_on")) {
+    audio_sengoku.pause();
+    audio_sengoku.currentTime = 0;
+    audio_honobono.play();
+  }
+  else if(sound.classList.contains("sound_rest_on")) {
+    audio_honobono.pause();
+    audio_honobono.currentTime = 0;
+    audio_sengoku.play();
+    
+  }
 
   if (play_skip.classList.contains("focus")) {
     play_skip.classList.remove("focus");
