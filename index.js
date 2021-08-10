@@ -134,26 +134,16 @@ sound.addEventListener("click", () => {
       soundFocusOn();
       audio_sengoku.play();
     }
-    else {
-      return null;
-    }
   }
   else if (clock.classList.contains("clock_rest")) {
     if (sound.classList.contains("sound_rest_on")) {
       soundRestOff();
-      audio_sengoku.pause();
-      audio_sengoku.currentTime = 0;
+      audio_honobono.pause();
+      audio_honobono.currentTime = 0;
     }
     else if (sound.classList.contains("sound_rest_off")) {
       soundRestOn();
-      audio_sengoku.play();
     }
-    else {
-      return null;
-    }
-  }
-  else {
-    return null;
   }
 });
 
@@ -250,9 +240,6 @@ const clockTime = () => {
       audio_honobono.currentTime = 0;
       audio_sengoku.play();
     }
-    else {
-      return null;
-    }
 
     play_btn.classList.remove("fa-pause-circle");
     play_btn.classList.add("fa-play-circle");
@@ -268,9 +255,6 @@ const clockTime = () => {
       else if (sound.classList.contains("sound_focus_off")) {
         soundRestOff();
       }
-      else {
-        return null;
-      }
     }
     else {
       focus_color();
@@ -280,9 +264,6 @@ const clockTime = () => {
       }
       else if (sound.classList.contains("sound_rest_off")) {
         soundFocusOff();
-      }
-      else {
-        return null;
       }
 
       clock_is_current = document.getElementsByClassName("clock_select_btn is_current")[0];
@@ -314,7 +295,6 @@ const focus_color = () => {
 
   if (clock_is_current === undefined) {
     clock_select_btn[0].classList.add("is_current");
-    console.log(clock_select_btn[0].classList);
   }
 
   clock_is_current = document.getElementsByClassName("clock_select_btn is_current")[0];
@@ -399,9 +379,6 @@ const clockJudgment = () => {
     clock.classList.add("clock_focus");
     clock.classList.remove("clock_rest");
   }
-  else {
-    return null;
-  }
 }
 
 
@@ -421,13 +398,21 @@ const btnChange = () => {
 
 // stopボタンクリック時の挙動
 play_stop.addEventListener("click", () => {
-  console.log(ball_a.y);
-  console.log(ball_a.x);
   clearInterval(interval_id);
+  
+  if (sound.classList.contains("sound_focus_on")) {
+    audio_sengoku.pause();
+    audio_sengoku.currentTime = 0;
+  }
+  else if(sound.classList.contains("sound_rest_on")) {
+    audio_honobono.pause();
+    audio_honobono.currentTime = 0;
+  }
 
   if (clock.classList.contains("clock_rest")) {
     focus_color();
   }
+  
   if (play_btn.classList.contains("fa-pause-circle")) {
     play_btn.classList.remove("fa-pause-circle");
     play_btn.classList.add("fa-play-circle");
@@ -458,9 +443,6 @@ play_stop.addEventListener("click", () => {
       sound_circle.classList.add("sound_focus_off_circle");
       sound_icon.classList.remove("sound_rest_off_icon");
       sound_icon.classList.add("sound_focus_off_icon");
-    }
-    else {
-      return null;
     }
 
     document.body.style.background = "#F7C100";
@@ -524,9 +506,6 @@ play_skip.addEventListener("click", () => {
       play_btn.classList.add("fa-play-circle");
     }
   }
-  else {
-    return null;
-  }
 
 
 
@@ -543,9 +522,6 @@ play_skip.addEventListener("click", () => {
   else if (sound.classList.contains("sound_rest_off")) {
     soundFocusOff();
   }
-  else {
-    return null;
-  }
 
 
 
@@ -557,9 +533,6 @@ play_skip.addEventListener("click", () => {
   else if (clock.classList.contains("clock_rest")) {
     clock.classList.add("clock_focus");
     clock.classList.remove("clock_rest");
-  }
-  else {
-    return null;
   }
 
 
@@ -604,14 +577,3 @@ play_skip.addEventListener("click", () => {
   }
   mouseEvent();
 });
-
-class ball {
-  constructor(x, y, dx, dy) {
-      this.x = x;
-      this.y = y;
-      this.dx = dx;
-      this.dy = dy;
-  }
-}
-
-let ball_a = new ball(2, "赤犬", 3 * 4, "dx");
