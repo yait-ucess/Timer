@@ -11,8 +11,10 @@ clock_is_current = document.getElementsByClassName("clock_select_btn is_current"
 
 const toggle_is_open = () => {
   clock_select.classList.toggle("clock_select");
-  for (let i = 0; clock_select_btn.length; i++) {
+  let i = 0;
+  while (i < clock_select_btn.length) {
     clock_select_btn[i].classList.toggle("is_open");
+    i++;
   };
 };
 
