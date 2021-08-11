@@ -19,7 +19,7 @@ const clock_select_btn = document.getElementsByClassName("clock_select_btn");
 
 
 
-let three_dot;
+// let three_dot;
 let interval_id;
 let clock_edit;
 let clock_is_current;
@@ -28,7 +28,7 @@ let time;
 
 
 
-three_dot = document.getElementsByClassName("three_dot_focus");
+// three_dot = document.getElementsByClassName("three_dot_focus");
 clock_edit = document.getElementById("clock_edit");
 clock_is_current = document.getElementsByClassName("clock_select_btn is_current")[0];
 
@@ -301,12 +301,12 @@ const focus_color = () => {
   clock_edit.innerHTML = clock_is_current.innerHTML;
   clock_edit.style.color = "#707070";
   clock_text.style.color = "#707070";
-  three_dot = document.getElementsByClassName("three_dot_rest");
+  // three_dot = document.getElementsByClassName("three_dot_rest");
 
-  for (let i = 0; three_dot.length; i++) {
-    three_dot[0].classList.add("three_dot_focus");
-    three_dot[0].classList.remove("three_dot_rest");
-  }
+  // for (let i = 0; three_dot.length; i++) {
+  //   three_dot[0].classList.add("three_dot_focus");
+  //   three_dot[0].classList.remove("three_dot_rest");
+  // }
 
   clock_text.innerHTML = "集中";
 }
@@ -332,12 +332,12 @@ const rest_color = () => {
 
   clock_edit.style.color = "#F7C100";
   clock_text.style.color = "#F7C100";
-  three_dot = document.getElementsByClassName("three_dot_focus");
+  // three_dot = document.getElementsByClassName("three_dot_focus");
 
-  for (let i = 0; three_dot.length; i++) {
-    three_dot[0].classList.add("three_dot_rest");
-    three_dot[0].classList.remove("three_dot_focus");
-  }
+  // for (let i = 0; three_dot.length; i++) {
+  //   three_dot[0].classList.add("three_dot_rest");
+  //   three_dot[0].classList.remove("three_dot_focus");
+  // }
 
   clock_text.innerHTML = "休憩";
 }
@@ -446,11 +446,11 @@ play_stop.addEventListener("click", () => {
     }
 
     document.body.style.background = "#F7C100";
-    three_dot = document.getElementsByClassName("three_dot_rest");
-    for (let i = 0; three_dot.length; i++) {
-      three_dot[0].classList.add("three_dot_focus");
-      three_dot[0].classList.remove("three_dot_rest");
-    }
+    // three_dot = document.getElementsByClassName("three_dot_rest");
+    // for (let i = 0; three_dot.length; i++) {
+    //   three_dot[0].classList.add("three_dot_focus");
+    //   three_dot[0].classList.remove("three_dot_rest");
+    // }
 
     clock.classList.remove("clock_rest");
     clock.classList.add("clock_focus");
