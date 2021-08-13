@@ -52,7 +52,7 @@ const soundFocusOn = () => {
   sound_icon.classList.add("sound_focus_on_icon");
   sound_icon.classList.remove("fa-volume-mute");
   sound_icon.classList.add("fa-volume-up");
-}
+};
 
 
 
@@ -74,7 +74,7 @@ const soundFocusOff = () => {
   sound_icon.classList.add("sound_focus_off_icon");
   sound_icon.classList.remove("fa-volume-up");
   sound_icon.classList.add("fa-volume-mute");
-}
+};
 
 
 
@@ -96,7 +96,7 @@ const soundRestOn = () => {
   sound_icon.classList.add("sound_rest_on_icon");
   sound_icon.classList.remove("fa-volume-mute");
   sound_icon.classList.add("fa-volume-up");
-}
+};
 
 
 
@@ -118,7 +118,7 @@ const soundRestOff = () => {
   sound_icon.classList.add("sound_rest_off_icon");
   sound_icon.classList.remove("fa-volume-up");
   sound_icon.classList.add("fa-volume-mute");
-}
+};
 
 
 
@@ -209,7 +209,7 @@ const addZero = (value) => {
     value = "0" + value;
   }
   return value;
-}
+};
 
 
 
@@ -276,7 +276,7 @@ const clockTime = () => {
       play_btn.classList.add("fa-pause-circle");
     }
   }
-}
+};
 
 
 
@@ -309,7 +309,7 @@ const focus_color = () => {
   // }
 
   clock_text.innerHTML = "集中";
-}
+};
 
 
 
@@ -340,7 +340,7 @@ const rest_color = () => {
   // }
 
   clock_text.innerHTML = "休憩";
-}
+};
 
 
 
@@ -365,7 +365,7 @@ const mouseEvent = () => {
       }
     }
   });
-}
+};
 
 
 
@@ -379,7 +379,7 @@ const clockJudgment = () => {
     clock.classList.add("clock_focus");
     clock.classList.remove("clock_rest");
   }
-}
+};
 
 
 
@@ -392,7 +392,7 @@ const btnChange = () => {
   
   play_btn.classList.remove("fas_play_focus");
   play_btn.classList.add("fas_play_rest");
-}
+};
 
 
 
