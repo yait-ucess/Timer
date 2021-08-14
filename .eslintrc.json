@@ -1,13 +1,15 @@
 {
-  "extends": ["eslint:recommended"],
-  "plugins": [],
-  "parserOptions": {
-    "sourceType": "module",
-    "ecmaVersion": 2015
-  },
-  "env": {"browser": true},
-  "globals": {},
-  "rules": {
-    "semi": "error"
-  }
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "node": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "rules": {
+      "semi": [2, "always"]
+    }
 }

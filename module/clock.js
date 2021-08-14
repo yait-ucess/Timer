@@ -1,4 +1,3 @@
-const play_btn = document.getElementById("play");
 const clock_form   = document.querySelector(".clock_form");
 const clock_select = document.getElementById("clock_select");
 const clock_select_btn = document.getElementsByClassName("clock_select_btn");
@@ -15,7 +14,7 @@ const toggle_is_open = () => {
   while (i < clock_select_btn.length) {
     clock_select_btn[i].classList.toggle("is_open");
     i++;
-  };
+  }
 };
 
 const toggle_select = () => {
