@@ -34,25 +34,59 @@ clock_is_current = document.getElementsByClassName("clock_select_btn is_current"
 
 
 
-const soundFocusOn = () => {
-  if (sound.classList.contains("sound_rest_on")) {
-    sound.classList.remove("sound_rest_on");
-    sound_text.classList.remove("sound_rest_on_text");
-    sound_circle.classList.remove("sound_rest_on_circle");
-    sound_icon.classList.remove("sound_rest_on_icon");
+class soundSwitch {
+  constructor(a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p) {
+    if (sound.classList.contains(a)) {
+      sound.classList.remove(b);
+      sound_text.classList.remove(c);
+      sound_circle.classList.remove(d);
+      sound_icon.classList.remove(e);
+    }
+    sound.classList.remove(f);
+    sound.classList.add(g);
+    sound_text.classList.remove(h);
+    sound_text.classList.add(i);
+    sound_text.innerHTML = j;
+    sound_circle.classList.remove(k);
+    sound_circle.classList.add(l);
+    sound_icon.classList.remove(m);
+    sound_icon.classList.add(n);
+    sound_icon.classList.remove(o);
+    sound_icon.classList.add(p);
   }
-  sound.classList.remove("sound_focus_off");
-  sound.classList.add("sound_focus_on");
-  sound_text.classList.remove("sound_focus_off_text");
-  sound_text.classList.add("sound_focus_on_text");
-  sound_text.innerHTML = "ON";
-  sound_circle.classList.remove("sound_focus_off_circle");
-  sound_circle.classList.add("sound_focus_on_circle");
-  sound_icon.classList.remove("sound_focus_off_icon");
-  sound_icon.classList.add("sound_focus_on_icon");
-  sound_icon.classList.remove("fa-volume-mute");
-  sound_icon.classList.add("fa-volume-up");
-};
+}
+
+// class ball {
+//   constructor(x, y, dx, dy) {
+//       this.x = x;
+//       this.y = y;
+//       this.dx = dx;
+//       this.dy = dy;
+//   }
+// }
+
+// let ball_a = new ball(0, 0, 10, 0);
+
+
+// const soundFocusOn = () => {
+//   if (sound.classList.contains("sound_rest_on")) {
+//     sound.classList.remove("sound_rest_on");
+//     sound_text.classList.remove("sound_rest_on_text");
+//     sound_circle.classList.remove("sound_rest_on_circle");
+//     sound_icon.classList.remove("sound_rest_on_icon");
+//   }
+//   sound.classList.remove("sound_focus_off");
+//   sound.classList.add("sound_focus_on");
+//   sound_text.classList.remove("sound_focus_off_text");
+//   sound_text.classList.add("sound_focus_on_text");
+//   sound_text.innerHTML = "ON";
+//   sound_circle.classList.remove("sound_focus_off_circle");
+//   sound_circle.classList.add("sound_focus_on_circle");
+//   sound_icon.classList.remove("sound_focus_off_icon");
+//   sound_icon.classList.add("sound_focus_on_icon");
+//   sound_icon.classList.remove("fa-volume-mute");
+//   sound_icon.classList.add("fa-volume-up");
+// };
 
 
 
@@ -131,7 +165,12 @@ sound.addEventListener("click", () => {
       audio_sengoku.currentTime = 0;
     }
     else if (sound.classList.contains("sound_focus_off")) {
-      soundFocusOn();
+      // soundFocusOn();
+      new soundSwitch(
+        "sound_rest_on", "sound_rest_on", "sound_rest_on_text", "sound_rest_on_circle", "sound_rest_on_icon", "sound_focus_off", "sound_focus_on",
+        "sound_focus_off_text", "sound_focus_on_text", "ON", "sound_focus_off_circle", "sound_focus_on_circle", "sound_focus_off_icon",
+        "sound_focus_on_icon", "fa-volume-mute", "fa-volume-up"
+      );
       audio_sengoku.play();
     }
   }
