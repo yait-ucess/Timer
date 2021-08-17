@@ -54,40 +54,20 @@ class soundSwitch {
     sound_icon.classList.remove(`fa-volume-${o}`);
     sound_icon.classList.add(`fa-volume-${p}`);
   }
-
-
-
-  // const soundRestOff = () => {
-  //   if (sound.classList.contains("sound_focus_off")) {
-  //     sound.classList.remove("sound_focus_off");
-  //     sound_text.classList.remove("sound_focus_off_text");
-  //     sound_circle.classList.remove("sound_focus_off_circle");
-  //     sound_icon.classList.remove("sound_focus_off_icon");
-  //   }
-  //   sound.classList.remove("sound_rest_on");
-  //   sound.classList.add("sound_rest_off");
-  //   sound_text.classList.remove("sound_rest_on_text");
-  //   sound_text.classList.add("sound_rest_off_text");
-  //   sound_text.innerHTML = "OFF";
-  //   sound_circle.classList.remove("sound_rest_on_circle");
-  //   sound_circle.classList.add("sound_rest_off_circle");
-  //   sound_icon.classList.remove("sound_rest_on_icon");
-  //   sound_icon.classList.add("sound_rest_off_icon");
-  //   sound_icon.classList.remove("fa-volume-up");
-  //   sound_icon.classList.add("fa-volume-mute");
-  // };
 }
 
-// class ball {
-//   constructor(x, y, dx, dy) {
-//       this.x = x;
-//       this.y = y;
-//       this.dx = dx;
-//       this.dy = dy;
-//   }
-// }
+class ball {
+  constructor(x, y, dx, dy) {
+      this.x = x;
+      this.y = y;
+      this.dx = dx;
+      this.dy = dy;
+  }
+}
 
-// let ball_a = new ball(0, 0, 10, 0);
+let ball_a = new ball(0, 0, 10, 0);
+ball_a();
+
 
 
 // const soundFocusOn = () => {
