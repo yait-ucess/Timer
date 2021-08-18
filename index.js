@@ -56,6 +56,13 @@ class soundSwitch {
   }
 }
 
+
+// let soundFocusOn = soundSwitch(
+//   "rest_off", "rest_off", "rest_off", "rest_off", "rest_off", "focus_on", "focus_off", "focus_on", "focus_off", "OFF",
+//   "focus_on", "focus_off", "focus_on", "focus_off", "up", "mute"
+// );
+
+
 class ball {
   constructor(x, y, dx, dy) {
       this.x = x;
@@ -66,7 +73,8 @@ class ball {
 }
 
 let ball_a = new ball(0, 0, 10, 0);
-ball_a();
+console.log(ball_a);
+ball_a;
 
 
 
@@ -167,6 +175,8 @@ sound.addEventListener("click", () => {
         "rest_off", "rest_off", "rest_off", "rest_off", "rest_off", "focus_on", "focus_off", "focus_on", "focus_off", "OFF",
         "focus_on", "focus_off", "focus_on", "focus_off", "up", "mute"
       );
+      // console.log(soundFocusOn);
+      // soundFocusOn();
       audio_sengoku.pause();
       audio_sengoku.currentTime = 0;
     }
@@ -195,6 +205,7 @@ sound.addEventListener("click", () => {
         "focus_on", "focus_on", "focus_on", "focus_on", "focus_on", "rest_off", "rest_on", "rest_off", "rest_on", "ON",
         "rest_off", "rest_on", "rest_off", "rest_on", "mute", "up"
       );
+      audio_honobono.play();
     }
   }
 });
@@ -376,7 +387,7 @@ const focus_color = () => {
   //   three_dot[0].classList.remove("three_dot_rest");
   // }
 
-  clock_text.innerHTML = "集中";
+  clock_text.innerHTML = "Focus";
 };
 
 
@@ -407,7 +418,7 @@ const rest_color = () => {
   //   three_dot[0].classList.remove("three_dot_focus");
   // }
 
-  clock_text.innerHTML = "休憩";
+  clock_text.innerHTML = "Rest";
 };
 
 
@@ -522,7 +533,7 @@ play_stop.addEventListener("click", () => {
 
     clock.classList.remove("clock_rest");
     clock.classList.add("clock_focus");
-    clock_text.innerHTML = "集中";
+    clock_text.innerHTML = "Focus";
 
     clock_form.classList.remove("clock_form_rest");
     clock_form.classList.add("clock_form_focus");
