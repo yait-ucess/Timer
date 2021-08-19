@@ -411,13 +411,6 @@ const rest_color = () => {
 
   clock_edit.style.color = "#F7C100";
   clock_text.style.color = "#F7C100";
-  // three_dot = document.getElementsByClassName("three_dot_focus");
-
-  // for (let i = 0; three_dot.length; i++) {
-  //   three_dot[0].classList.add("three_dot_rest");
-  //   three_dot[0].classList.remove("three_dot_focus");
-  // }
-
   clock_text.innerHTML = "Rest";
 };
 
@@ -525,16 +518,9 @@ play_stop.addEventListener("click", () => {
     }
 
     document.body.style.background = "#F7C100";
-    // three_dot = document.getElementsByClassName("three_dot_rest");
-    // for (let i = 0; three_dot.length; i++) {
-    //   three_dot[0].classList.add("three_dot_focus");
-    //   three_dot[0].classList.remove("three_dot_rest");
-    // }
-
     clock.classList.remove("clock_rest");
     clock.classList.add("clock_focus");
     clock_text.innerHTML = "Focus";
-
     clock_form.classList.remove("clock_form_rest");
     clock_form.classList.add("clock_form_focus");
     clock_edit.innerHTML = clock_is_current.innerHTML;
@@ -672,3 +658,9 @@ play_skip.addEventListener("click", () => {
   }
   mouseEvent();
 });
+
+const getTriangle = (base, height) => {
+  return base * height / 2;
+};
+
+module.exports = getTriangle;
