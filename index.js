@@ -4,8 +4,8 @@ const sound            = document.getElementById("sound");
 const sound_text       = document.getElementById("sound_text");
 const sound_circle     = document.getElementById("sound_circle");
 const sound_icon       = document.getElementById("sound_icon");
-const audio_sengoku    = document.getElementById("audio_sengoku");
-const audio_honobono   = document.getElementById("audio_honobono");
+const audio_focus      = document.getElementById("audio_focus");
+const audio_rest       = document.getElementById("audio_rest");
 const clock            = document.getElementById("clock");
 const clock_text       = document.getElementById("clock_text");
 const clock_form       = document.querySelector(".clock_form");
@@ -57,159 +57,55 @@ class soundSwitch {
 }
 
 
-// let soundFocusOn = soundSwitch(
-//   "rest_off", "rest_off", "rest_off", "rest_off", "rest_off", "focus_on", "focus_off", "focus_on", "focus_off", "OFF",
-//   "focus_on", "focus_off", "focus_on", "focus_off", "up", "mute"
-// );
 
-
-class ball {
-  constructor(x, y, dx, dy) {
-      this.x = x;
-      this.y = y;
-      this.dx = dx;
-      this.dy = dy;
-  }
-}
-
-let ball_a = new ball(0, 0, 10, 0);
-console.log(ball_a);
-ball_a;
-
-
-
-// const soundFocusOn = () => {
-//   if (sound.classList.contains("sound_rest_on")) {
-//     sound.classList.remove("sound_rest_on");
-//     sound_text.classList.remove("sound_rest_on_text");
-//     sound_circle.classList.remove("sound_rest_on_circle");
-//     sound_icon.classList.remove("sound_rest_on_icon");
-//   }
-//   sound.classList.remove("sound_focus_off");
-//   sound.classList.add("sound_focus_on");
-//   sound_text.classList.remove("sound_focus_off_text");
-//   sound_text.classList.add("sound_focus_on_text");
-//   sound_text.innerHTML = "ON";
-//   sound_circle.classList.remove("sound_focus_off_circle");
-//   sound_circle.classList.add("sound_focus_on_circle");
-//   sound_icon.classList.remove("sound_focus_off_icon");
-//   sound_icon.classList.add("sound_focus_on_icon");
-//   sound_icon.classList.remove("fa-volume-mute");
-//   sound_icon.classList.add("fa-volume-up");
-// };
-
-
-
-// const soundFocusOff = () => {
-//   if (sound.classList.contains("sound_rest_off")) {
-//     sound.classList.remove("sound_rest_off");
-//     sound_text.classList.remove("sound_rest_off_text");
-//     sound_circle.classList.remove("sound_rest_off_circle");
-//     sound_icon.classList.remove("sound_rest_off_icon");
-//   }
-//   sound.classList.remove("sound_focus_on");
-//   sound.classList.add("sound_focus_off");
-//   sound_text.classList.remove("sound_focus_on_text");
-//   sound_text.classList.add("sound_focus_off_text");
-//   sound_text.innerHTML = "OFF";
-//   sound_circle.classList.remove("sound_focus_on_circle");
-//   sound_circle.classList.add("sound_focus_off_circle");
-//   sound_icon.classList.remove("sound_focus_on_icon");
-//   sound_icon.classList.add("sound_focus_off_icon");
-//   sound_icon.classList.remove("fa-volume-up");
-//   sound_icon.classList.add("fa-volume-mute");
-// };
-
-
-
-// const soundRestOn = () => {
-//   if (sound.classList.contains("sound_focus_on")) {
-//     sound.classList.remove("sound_focus_on");
-//     sound_text.classList.remove("sound_focus_on_text");
-//     sound_circle.classList.remove("sound_focus_on_circle");
-//     sound_icon.classList.remove("sound_focus_on_icon");
-//   }
-//   sound.classList.remove("sound_rest_off");
-//   sound.classList.add("sound_rest_on");
-//   sound_text.classList.remove("sound_rest_off_text");
-//   sound_text.classList.add("sound_rest_on_text");
-//   sound_text.innerHTML = "ON";
-//   sound_circle.classList.remove("sound_rest_off_circle");
-//   sound_circle.classList.add("sound_rest_on_circle");
-//   sound_icon.classList.remove("sound_rest_off_icon");
-//   sound_icon.classList.add("sound_rest_on_icon");
-//   sound_icon.classList.remove("fa-volume-mute");
-//   sound_icon.classList.add("fa-volume-up");
-// };
-
-
-
-// const soundRestOff = () => {
-//   if (sound.classList.contains("sound_focus_off")) {
-//     sound.classList.remove("sound_focus_off");
-//     sound_text.classList.remove("sound_focus_off_text");
-//     sound_circle.classList.remove("sound_focus_off_circle");
-//     sound_icon.classList.remove("sound_focus_off_icon");
-//   }
-//   sound.classList.remove("sound_rest_on");
-//   sound.classList.add("sound_rest_off");
-//   sound_text.classList.remove("sound_rest_on_text");
-//   sound_text.classList.add("sound_rest_off_text");
-//   sound_text.innerHTML = "OFF";
-//   sound_circle.classList.remove("sound_rest_on_circle");
-//   sound_circle.classList.add("sound_rest_off_circle");
-//   sound_icon.classList.remove("sound_rest_on_icon");
-//   sound_icon.classList.add("sound_rest_off_icon");
-//   sound_icon.classList.remove("fa-volume-up");
-//   sound_icon.classList.add("fa-volume-mute");
-// };
-
-
+console.log(sound);
 
 // soundボタンクリック時の挙動
-sound.addEventListener("click", () => {
-  if (clock.classList.contains("clock_focus")) {
-    if (sound.classList.contains("sound_focus_on")) {
-      // soundFocusOff();
-      new soundSwitch(
-        "rest_off", "rest_off", "rest_off", "rest_off", "rest_off", "focus_on", "focus_off", "focus_on", "focus_off", "OFF",
-        "focus_on", "focus_off", "focus_on", "focus_off", "up", "mute"
-      );
-      // console.log(soundFocusOn);
-      // soundFocusOn();
-      audio_sengoku.pause();
-      audio_sengoku.currentTime = 0;
+// if (!sound){ return false;}
+if (sound) {
+  sound.addEventListener("click", () => {
+    if (clock.classList.contains("clock_focus")) {
+      if (sound.classList.contains("sound_focus_on")) {
+        // soundFocusOff();
+        new soundSwitch(
+          "rest_off", "rest_off", "rest_off", "rest_off", "rest_off", "focus_on", "focus_off", "focus_on", "focus_off", "OFF",
+          "focus_on", "focus_off", "focus_on", "focus_off", "up", "mute"
+        );
+        // console.log(soundFocusOn);
+        // soundFocusOn();
+        audio_focus.pause();
+        audio_focus.currentTime = 0;
+      }
+      else if (sound.classList.contains("sound_focus_off")) {
+        // soundFocusOn();
+        new soundSwitch(
+          "rest_on", "rest_on", "rest_on", "rest_on", "rest_on", "focus_off", "focus_on", "focus_off", "focus_on", "ON",
+          "focus_off", "focus_on", "focus_off", "focus_on", "mute", "up"
+        );
+        audio_focus.play();
+      }
     }
-    else if (sound.classList.contains("sound_focus_off")) {
-      // soundFocusOn();
-      new soundSwitch(
-        "rest_on", "rest_on", "rest_on", "rest_on", "rest_on", "focus_off", "focus_on", "focus_off", "focus_on", "ON",
-        "focus_off", "focus_on", "focus_off", "focus_on", "mute", "up"
-      );
-      audio_sengoku.play();
+    else if (clock.classList.contains("clock_rest")) {
+      if (sound.classList.contains("sound_rest_on")) {
+        // soundRestOff();
+        new soundSwitch(
+          "focus_off", "focus_off", "focus_off", "focus_off", "focus_off", "rest_on", "rest_off", "rest_on", "rest_off", "OFF",
+          "rest_on", "rest_off", "rest_on", "rest_off", "up", "mute"
+        );
+        audio_rest.pause();
+        audio_rest.currentTime = 0;
+      }
+      else if (sound.classList.contains("sound_rest_off")) {
+        // soundRestOn();
+        new soundSwitch(
+          "focus_on", "focus_on", "focus_on", "focus_on", "focus_on", "rest_off", "rest_on", "rest_off", "rest_on", "ON",
+          "rest_off", "rest_on", "rest_off", "rest_on", "mute", "up"
+        );
+        audio_rest.play();
+      }
     }
-  }
-  else if (clock.classList.contains("clock_rest")) {
-    if (sound.classList.contains("sound_rest_on")) {
-      // soundRestOff();
-      new soundSwitch(
-        "focus_off", "focus_off", "focus_off", "focus_off", "focus_off", "rest_on", "rest_off", "rest_on", "rest_off", "OFF",
-        "rest_on", "rest_off", "rest_on", "rest_off", "up", "mute"
-      );
-      audio_honobono.pause();
-      audio_honobono.currentTime = 0;
-    }
-    else if (sound.classList.contains("sound_rest_off")) {
-      // soundRestOn();
-      new soundSwitch(
-        "focus_on", "focus_on", "focus_on", "focus_on", "focus_on", "rest_off", "rest_on", "rest_off", "rest_on", "ON",
-        "rest_off", "rest_on", "rest_off", "rest_on", "mute", "up"
-      );
-      audio_honobono.play();
-    }
-  }
-});
-
+  });  
+}
 
 
 toggle_select();
@@ -218,52 +114,54 @@ select_time();
 
 
 // タイマーhover時の挙動
-clock_edit.addEventListener("mouseover", (event) => {
-  event.target.style.cursor = "default";
-  if (clock_edit.innerHTML === clock_is_current.innerHTML) {
-    if (!clock_form.classList.contains("clock_form_rest")) {
-      event.target.style.cursor = "pointer";
-      event.target.style.color = "#7d7d7d";
+if (clock_edit) {
+  clock_edit.addEventListener("mouseover", (event) => {
+    event.target.style.cursor = "default";
+    if (clock_edit.innerHTML === clock_is_current.innerHTML) {
+      if (!clock_form.classList.contains("clock_form_rest")) {
+        event.target.style.cursor = "pointer";
+        event.target.style.color = "#7d7d7d";
+      }
     }
-  }
-});
-clock_edit.addEventListener("mouseout", (event) => {
-  if (clock_edit.innerHTML === clock_is_current.innerHTML) {
-    if (!clock_form.classList.contains("clock_form_rest")) {
-      event.target.style.color = "#707070";
+  });
+  clock_edit.addEventListener("mouseout", (event) => {
+    if (clock_edit.innerHTML === clock_is_current.innerHTML) {
+      if (!clock_form.classList.contains("clock_form_rest")) {
+        event.target.style.color = "#707070";
+      }
+      else {
+        event.target.style.color = "#F7C100";
+      }
     }
-    else {
-      event.target.style.color = "#F7C100";
-    }
-  }
-});
-
+  });  
+}
 
 
 // playボタンクリック時の挙動
-play_start.addEventListener("click", () => {
-  if (play_btn.classList.contains("fa-play-circle")) {
-
-    clock_is_current = document.getElementsByClassName("clock_select_btn is_current")[0];
-
-    if (clock_edit.innerHTML === clock_is_current.innerHTML) {
-      now_time = clock_is_current.innerHTML;
-      time = parseInt(now_time) * 60 - 1;
+if (play_start) {
+  play_start.addEventListener("click", () => {
+    if (play_btn.classList.contains("fa-play-circle")) {
+  
+      clock_is_current = document.getElementsByClassName("clock_select_btn is_current")[0];
+  
+      if (clock_edit.innerHTML === clock_is_current.innerHTML) {
+        now_time = clock_is_current.innerHTML;
+        time = parseInt(now_time) * 60 - 1;
+      }
+  
+      interval_id = setInterval(clockTime, 1000);
+  
+      play_btn.classList.remove("fa-play-circle");
+      play_btn.classList.add("fa-pause-circle");
+  
+    } else {
+      clearInterval(interval_id);
+  
+      play_btn.classList.remove("fa-pause-circle");
+      play_btn.classList.add("fa-play-circle");
     }
-
-    interval_id = setInterval(clockTime, 1000);
-
-    play_btn.classList.remove("fa-play-circle");
-    play_btn.classList.add("fa-pause-circle");
-
-  } else {
-    clearInterval(interval_id);
-
-    play_btn.classList.remove("fa-pause-circle");
-    play_btn.classList.add("fa-play-circle");
-  }
-});
-
+  });  
+}
 
 
 // 00:00のように４桁で表現する
@@ -294,14 +192,14 @@ const clockTime = () => {
     clearInterval(interval_id);
 
     if (sound.classList.contains("sound_focus_on")) {
-      audio_sengoku.pause();
-      audio_sengoku.currentTime = 0;
-      audio_honobono.play();
+      audio_focus.pause();
+      audio_focus.currentTime = 0;
+      audio_rest.play();
     }
     else if(sound.classList.contains("sound_rest_on")) {
-      audio_honobono.pause();
-      audio_honobono.currentTime = 0;
-      audio_sengoku.play();
+      audio_rest.pause();
+      audio_rest.currentTime = 0;
+      audio_focus.play();
     }
 
     play_btn.classList.remove("fa-pause-circle");
@@ -380,13 +278,6 @@ const focus_color = () => {
   clock_edit.innerHTML = clock_is_current.innerHTML;
   clock_edit.style.color = "#707070";
   clock_text.style.color = "#707070";
-  // three_dot = document.getElementsByClassName("three_dot_rest");
-
-  // for (let i = 0; three_dot.length; i++) {
-  //   three_dot[0].classList.add("three_dot_focus");
-  //   three_dot[0].classList.remove("three_dot_rest");
-  // }
-
   clock_text.innerHTML = "Focus";
 };
 
@@ -469,198 +360,201 @@ const btnChange = () => {
 
 
 // stopボタンクリック時の挙動
-play_stop.addEventListener("click", () => {
-  clearInterval(interval_id);
-  
-  if (sound.classList.contains("sound_focus_on")) {
-    audio_sengoku.pause();
-    audio_sengoku.currentTime = 0;
-  }
-  else if(sound.classList.contains("sound_rest_on")) {
-    audio_honobono.pause();
-    audio_honobono.currentTime = 0;
-  }
-
-  if (clock.classList.contains("clock_rest")) {
-    focus_color();
-  }
-  
-  if (play_btn.classList.contains("fa-pause-circle")) {
-    play_btn.classList.remove("fa-pause-circle");
-    play_btn.classList.add("fa-play-circle");
-  }
-
-  if (!clock_form.classList.contains("clock_form_rest")) {
-    clock_is_current = document.getElementsByClassName("clock_select_btn is_current")[0];
-    clock_edit.innerHTML = clock_is_current.innerHTML;
-  }
-
-  if (clock_form.classList.contains("clock_form_rest")) {
-    if (sound.classList.contains("sound_rest_on")) {
-      sound.classList.remove("sound_rest_on");
-      sound.classList.add("sound_focus_on");
-      sound_text.classList.remove("sound_rest_on_text");
-      sound_text.classList.add("sound_focus_on_text");
-      sound_circle.classList.remove("sound_rest_on_circle");
-      sound_circle.classList.add("sound_focus_on_circle");
-      sound_icon.classList.remove("sound_rest_on_icon");
-      sound_icon.classList.add("sound_focus_on_icon");
-    }
-    else if (sound.classList.contains("sound_rest_off")) {
-      sound.classList.remove("sound_rest_off");
-      sound.classList.add("sound_focus_off");
-      sound_text.classList.remove("sound_rest_off_text");
-      sound_text.classList.add("sound_focus_off_text");
-      sound_circle.classList.remove("sound_rest_off_circle");
-      sound_circle.classList.add("sound_focus_off_circle");
-      sound_icon.classList.remove("sound_rest_off_icon");
-      sound_icon.classList.add("sound_focus_off_icon");
-    }
-
-    document.body.style.background = "#F7C100";
-    clock.classList.remove("clock_rest");
-    clock.classList.add("clock_focus");
-    clock_text.innerHTML = "Focus";
-    clock_form.classList.remove("clock_form_rest");
-    clock_form.classList.add("clock_form_focus");
-    clock_edit.innerHTML = clock_is_current.innerHTML;
-
-    mouseEvent();
-  }
-});
-
-
-
-// skipボタンクリック時の挙動
-play_skip.addEventListener("click", () => {
-  if (sound.classList.contains("sound_focus_on")) {
-    audio_sengoku.pause();
-    audio_sengoku.currentTime = 0;
-    audio_honobono.play();
-  }
-  else if(sound.classList.contains("sound_rest_on")) {
-    audio_honobono.pause();
-    audio_honobono.currentTime = 0;
-    audio_sengoku.play();
+if (play_stop) {
+  play_stop.addEventListener("click", () => {
+    clearInterval(interval_id);
     
-  }
-
-  if (play_skip.classList.contains("focus")) {
-    play_skip.classList.remove("focus");
-    play_skip.classList.add("rest");
-  }
-  else if (play_skip.classList.contains("rest")) {
-    play_skip.classList.remove("rest");
-    play_skip.classList.add("focus");
-
-    if (clock_form.classList.contains("clock_form_rest"))  {
-      if (play_btn.classList.contains("fa-pause-circle")) {
-        clearInterval(interval_id);  
-      }
-  
-      interval_id = setInterval(clockTime, 1000);
-  
-      play_btn.classList.remove("fa-play-circle");
-      play_btn.classList.add("fa-pause-circle");
-  
+    if (sound.classList.contains("sound_focus_on")) {
+      audio_focus.pause();
+      audio_focus.currentTime = 0;
     }
-    else {
-      clearInterval(interval_id);
-
+    else if(sound.classList.contains("sound_rest_on")) {
+      audio_rest.pause();
+      audio_rest.currentTime = 0;
+    }
+  
+    if (clock.classList.contains("clock_rest")) {
+      focus_color();
+    }
+    
+    if (play_btn.classList.contains("fa-pause-circle")) {
       play_btn.classList.remove("fa-pause-circle");
       play_btn.classList.add("fa-play-circle");
     }
-  }
-
-
-
-  // soundボタンの色変更
-  if (sound.classList.contains("sound_focus_on")) {
-    // soundRestOn();
-    new soundSwitch(
-      "focus_on", "focus_on", "focus_on", "focus_on", "focus_on", "rest_off", "rest_on", "rest_off", "rest_on", "ON",
-      "rest_off", "rest_on", "rest_off", "rest_on", "mute", "up"
-    );
-  }
-  else if (sound.classList.contains("sound_focus_off")) {
-    // soundRestOff();
-    new soundSwitch(
-      "focus_off", "focus_off", "focus_off", "focus_off", "focus_off", "rest_on", "rest_off", "rest_on", "rest_off", "OFF",
-      "rest_on", "rest_off", "rest_on", "rest_off", "up", "mute"
-    );
-  }
-  else if (sound.classList.contains("sound_rest_on")) {
-    // soundFocusOn();
-    new soundSwitch(
-      "rest_on", "rest_on", "rest_on", "rest_on", "rest_on", "focus_off", "focus_on", "focus_off", "focus_on", "ON",
-      "focus_off", "focus_on", "focus_off", "focus_on", "mute", "up"
-    );
-  }
-  else if (sound.classList.contains("sound_rest_off")) {
-    // soundFocusOff();
-    new soundSwitch(
-      "rest_off", "rest_off", "rest_off", "rest_off", "rest_off", "focus_on", "focus_off", "focus_on", "focus_off", "OFF",
-      "focus_on", "focus_off", "focus_on", "focus_off", "up", "mute"
-    );
-  }
-
-
-
-  // clock_focus, clock_restの追加・削除
-  if (clock.classList.contains("clock_focus")) {
-    clock.classList.add("clock_rest");
-    clock.classList.remove("clock_focus");
-  }
-  else if (clock.classList.contains("clock_rest")) {
-    clock.classList.add("clock_focus");
-    clock.classList.remove("clock_rest");
-  }
-
-
-
-  // clock_form_restの追加・削除
-  if (!clock_form.classList.contains("clock_form_rest")) {
-    clock_form.classList.add("clock_form_rest");
-  }
-  else {
-    clock_form.classList.remove("clock_form_rest");
-  }
-
-
-
-  // ３ボタンの変更
-  skip_btn.classList.remove("fas_skip_focus");
-  skip_btn.classList.add("fas_skip_rest");
   
-  stop_btn.classList.remove("fas_stop_focus");
-  stop_btn.classList.add("fas_stop_rest");
-  
-  play_btn.classList.remove("fas_play_focus");
-  play_btn.classList.add("fas_play_rest");
-
-
-
-  if (clock_form.classList.contains("clock_form_rest")) {
-    rest_color();
-  }
-  else {
-    focus_color();
-    clearInterval(interval_id);
-    clock_is_current = document.getElementsByClassName("clock_select_btn is_current")[0];
-    clock_edit.innerHTML = clock_is_current.innerHTML;
-  
-    if (clock_edit.innerHTML === clock_is_current.innerHTML) {
-      now_time = clock_is_current.innerHTML;
-      time = parseInt(now_time) * 60 - 1;
+    if (!clock_form.classList.contains("clock_form_rest")) {
+      clock_is_current = document.getElementsByClassName("clock_select_btn is_current")[0];
+      clock_edit.innerHTML = clock_is_current.innerHTML;
     }
   
-    interval_id = setInterval(clockTime, 1000);
-  }
-  mouseEvent();
-});
+    if (clock_form.classList.contains("clock_form_rest")) {
+      if (sound.classList.contains("sound_rest_on")) {
+        sound.classList.remove("sound_rest_on");
+        sound.classList.add("sound_focus_on");
+        sound_text.classList.remove("sound_rest_on_text");
+        sound_text.classList.add("sound_focus_on_text");
+        sound_circle.classList.remove("sound_rest_on_circle");
+        sound_circle.classList.add("sound_focus_on_circle");
+        sound_icon.classList.remove("sound_rest_on_icon");
+        sound_icon.classList.add("sound_focus_on_icon");
+      }
+      else if (sound.classList.contains("sound_rest_off")) {
+        sound.classList.remove("sound_rest_off");
+        sound.classList.add("sound_focus_off");
+        sound_text.classList.remove("sound_rest_off_text");
+        sound_text.classList.add("sound_focus_off_text");
+        sound_circle.classList.remove("sound_rest_off_circle");
+        sound_circle.classList.add("sound_focus_off_circle");
+        sound_icon.classList.remove("sound_rest_off_icon");
+        sound_icon.classList.add("sound_focus_off_icon");
+      }
+  
+      document.body.style.background = "#F7C100";
+      clock.classList.remove("clock_rest");
+      clock.classList.add("clock_focus");
+      clock_text.innerHTML = "Focus";
+      clock_form.classList.remove("clock_form_rest");
+      clock_form.classList.add("clock_form_focus");
+      clock_edit.innerHTML = clock_is_current.innerHTML;
+  
+      mouseEvent();
+    }
+  });  
+}
 
-const getTriangle = (base, height) => {
-  return base * height / 2;
+
+// skipボタンクリック時の挙動
+if (play_skip) {
+  play_skip.addEventListener("click", () => {
+    if (sound.classList.contains("sound_focus_on")) {
+      audio_focus.pause();
+      audio_focus.currentTime = 0;
+      audio_rest.play();
+    }
+    else if(sound.classList.contains("sound_rest_on")) {
+      audio_rest.pause();
+      audio_rest.currentTime = 0;
+      audio_focus.play();
+      
+    }
+  
+    if (play_skip.classList.contains("focus")) {
+      play_skip.classList.remove("focus");
+      play_skip.classList.add("rest");
+    }
+    else if (play_skip.classList.contains("rest")) {
+      play_skip.classList.remove("rest");
+      play_skip.classList.add("focus");
+  
+      if (clock_form.classList.contains("clock_form_rest"))  {
+        if (play_btn.classList.contains("fa-pause-circle")) {
+          clearInterval(interval_id);  
+        }
+    
+        interval_id = setInterval(clockTime, 1000);
+    
+        play_btn.classList.remove("fa-play-circle");
+        play_btn.classList.add("fa-pause-circle");
+    
+      }
+      else {
+        clearInterval(interval_id);
+  
+        play_btn.classList.remove("fa-pause-circle");
+        play_btn.classList.add("fa-play-circle");
+      }
+    }
+  
+  
+  
+    // soundボタンの色変更
+    if (sound.classList.contains("sound_focus_on")) {
+      // soundRestOn();
+      new soundSwitch(
+        "focus_on", "focus_on", "focus_on", "focus_on", "focus_on", "rest_off", "rest_on", "rest_off", "rest_on", "ON",
+        "rest_off", "rest_on", "rest_off", "rest_on", "mute", "up"
+      );
+    }
+    else if (sound.classList.contains("sound_focus_off")) {
+      // soundRestOff();
+      new soundSwitch(
+        "focus_off", "focus_off", "focus_off", "focus_off", "focus_off", "rest_on", "rest_off", "rest_on", "rest_off", "OFF",
+        "rest_on", "rest_off", "rest_on", "rest_off", "up", "mute"
+      );
+    }
+    else if (sound.classList.contains("sound_rest_on")) {
+      // soundFocusOn();
+      new soundSwitch(
+        "rest_on", "rest_on", "rest_on", "rest_on", "rest_on", "focus_off", "focus_on", "focus_off", "focus_on", "ON",
+        "focus_off", "focus_on", "focus_off", "focus_on", "mute", "up"
+      );
+    }
+    else if (sound.classList.contains("sound_rest_off")) {
+      // soundFocusOff();
+      new soundSwitch(
+        "rest_off", "rest_off", "rest_off", "rest_off", "rest_off", "focus_on", "focus_off", "focus_on", "focus_off", "OFF",
+        "focus_on", "focus_off", "focus_on", "focus_off", "up", "mute"
+      );
+    }
+  
+  
+  
+    // clock_focus, clock_restの追加・削除
+    if (clock.classList.contains("clock_focus")) {
+      clock.classList.add("clock_rest");
+      clock.classList.remove("clock_focus");
+    }
+    else if (clock.classList.contains("clock_rest")) {
+      clock.classList.add("clock_focus");
+      clock.classList.remove("clock_rest");
+    }
+  
+  
+  
+    // clock_form_restの追加・削除
+    if (!clock_form.classList.contains("clock_form_rest")) {
+      clock_form.classList.add("clock_form_rest");
+    }
+    else {
+      clock_form.classList.remove("clock_form_rest");
+    }
+  
+  
+  
+    // ３ボタンの変更
+    skip_btn.classList.remove("fas_skip_focus");
+    skip_btn.classList.add("fas_skip_rest");
+    
+    stop_btn.classList.remove("fas_stop_focus");
+    stop_btn.classList.add("fas_stop_rest");
+    
+    play_btn.classList.remove("fas_play_focus");
+    play_btn.classList.add("fas_play_rest");
+  
+  
+  
+    if (clock_form.classList.contains("clock_form_rest")) {
+      rest_color();
+    }
+    else {
+      focus_color();
+      clearInterval(interval_id);
+      clock_is_current = document.getElementsByClassName("clock_select_btn is_current")[0];
+      clock_edit.innerHTML = clock_is_current.innerHTML;
+    
+      if (clock_edit.innerHTML === clock_is_current.innerHTML) {
+        now_time = clock_is_current.innerHTML;
+        time = parseInt(now_time) * 60 - 1;
+      }
+    
+      interval_id = setInterval(clockTime, 1000);
+    }
+    mouseEvent();
+  });
+}
+
+const multiplication = (base, height) => {
+  return base * height;
 };
 
-module.exports = getTriangle;
+export default multiplication;
