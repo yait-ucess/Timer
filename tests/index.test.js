@@ -4,8 +4,8 @@
 
 import multiplication from "../index";
 
-describe('HelloWorld', () => {
+describe('multiplication', () => {
   test("掛け算", () => {
-    expect(multiplication(2, 3)).toBe(5);
+    expect(multiplication(3, 3)).toBe(9);
   });
 });

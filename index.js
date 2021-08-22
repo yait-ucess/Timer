@@ -19,7 +19,6 @@ const clock_select_btn = document.getElementsByClassName("clock_select_btn");
 
 
 
-// let three_dot;
 let interval_id;
 let clock_edit;
 let clock_is_current;
@@ -28,7 +27,6 @@ let time;
 
 
 
-// three_dot = document.getElementsByClassName("three_dot_focus");
 clock_edit = document.getElementById("clock_edit");
 clock_is_current = document.getElementsByClassName("clock_select_btn is_current")[0];
 
@@ -58,10 +56,7 @@ class soundSwitch {
 
 
 
-console.log(sound);
-
 // soundボタンクリック時の挙動
-// if (!sound){ return false;}
 if (sound) {
   sound.addEventListener("click", () => {
     if (clock.classList.contains("clock_focus")) {
