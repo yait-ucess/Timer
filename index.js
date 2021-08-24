@@ -167,6 +167,7 @@ const addZero = (value) => {
   return value;
 };
 
+console.log("0" + 9);
 
 
 // 時間の計算処理
@@ -558,5 +559,4 @@ const multiplication = (base, height) => {
   return base * height;
 };
 
-module.export = addZero;
-export default multiplication;
+export { addZero, multiplication };
