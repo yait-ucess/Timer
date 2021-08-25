@@ -167,7 +167,6 @@ const addZero = (value) => {
   return value;
 };
 
-console.log("0" + 9);
 
 
 // 時間の計算処理
@@ -549,14 +548,4 @@ if (play_skip) {
   });
 }
 
-// const addZero = (value) => {
-//   if (value < 10) {
-//     value = "0" + value;
-//   }
-//   return value;
-// };
-const multiplication = (base, height) => {
-  return base * height;
-};
-
-export { addZero, multiplication };
+export { clock_form, clock_edit, clock_is_current, addZero, clockTime, mouseEvent };
