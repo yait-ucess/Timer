@@ -29,6 +29,8 @@ describe("mouseEvent", () => {
     expect(mouseEvent()).toBe();
   });
   it("mouseout", () => {
+    console.log(clock_edit);
+    console.log(clock_form);
     clock_edit.innerHTML = 3;
     clock_is_current.innerHTML = 3;
     !clock_form.classList.contains("clock_form_rest");

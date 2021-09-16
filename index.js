@@ -61,18 +61,14 @@ if (sound) {
   sound.addEventListener("click", () => {
     if (clock.classList.contains("clock_focus")) {
       if (sound.classList.contains("sound_focus_on")) {
-        // soundFocusOff();
         new soundSwitch(
           "rest_off", "rest_off", "rest_off", "rest_off", "rest_off", "focus_on", "focus_off", "focus_on", "focus_off", "OFF",
           "focus_on", "focus_off", "focus_on", "focus_off", "up", "mute"
         );
-        // console.log(soundFocusOn);
-        // soundFocusOn();
         audio_focus.pause();
         audio_focus.currentTime = 0;
       }
       else if (sound.classList.contains("sound_focus_off")) {
-        // soundFocusOn();
         new soundSwitch(
           "rest_on", "rest_on", "rest_on", "rest_on", "rest_on", "focus_off", "focus_on", "focus_off", "focus_on", "ON",
           "focus_off", "focus_on", "focus_off", "focus_on", "mute", "up"
@@ -82,7 +78,6 @@ if (sound) {
     }
     else if (clock.classList.contains("clock_rest")) {
       if (sound.classList.contains("sound_rest_on")) {
-        // soundRestOff();
         new soundSwitch(
           "focus_off", "focus_off", "focus_off", "focus_off", "focus_off", "rest_on", "rest_off", "rest_on", "rest_off", "OFF",
           "rest_on", "rest_off", "rest_on", "rest_off", "up", "mute"
@@ -91,7 +86,6 @@ if (sound) {
         audio_rest.currentTime = 0;
       }
       else if (sound.classList.contains("sound_rest_off")) {
-        // soundRestOn();
         new soundSwitch(
           "focus_on", "focus_on", "focus_on", "focus_on", "focus_on", "rest_off", "rest_on", "rest_off", "rest_on", "ON",
           "rest_off", "rest_on", "rest_off", "rest_on", "mute", "up"
